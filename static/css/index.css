@@ -1053,7 +1053,6 @@ p {
   -webkit-text-decoration-line: line-through;
   text-decoration-line: line-through;
   color: #b1b1b1;
-  display: none;
 }
 
 .catalog__item-cost {

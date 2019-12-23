@@ -57,19 +57,19 @@
 	});
 
 	// Remove all WooCommerce Styles
-	add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+	add_filter('woocommerce_enqueue_styles', '__return_empty_array' );
 
-	add_theme_support( 'wc-product-gallery-slider');
-	add_theme_support( 'wc-product-gallery-zoom');
-	add_theme_support( 'wc-product-gallery-lightbox');
+	add_theme_support('wc-product-gallery-slider');
+	add_theme_support('wc-product-gallery-zoom');
+	add_theme_support('wc-product-gallery-lightbox');
 	// Remove WooCommerce shop title
-	add_filter( 'woocommerce_show_page_title', '__return_false' );
+	add_filter('woocommerce_show_page_title', '__return_false');
 
 	// Alter WooCommerce shop posts per page
 	function wpex_woo_posts_per_page($cols) {
 		return 12;
 	}
-	add_filter( 'loop_shop_per_page', 'wpex_woo_posts_per_page' );
+	add_filter('loop_shop_per_page', 'wpex_woo_posts_per_page');
 
 
 	/*
