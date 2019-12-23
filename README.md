@@ -3,7 +3,9 @@
 ## 1
 
 Скопировать репозиторий в папку темы
+
 `cd <wordpress_root>/wp-content/themes/`
+
 `git clone https://github.com/MarkKhramko/elochka-store-theme elochka-store`
 
 ## 2 
