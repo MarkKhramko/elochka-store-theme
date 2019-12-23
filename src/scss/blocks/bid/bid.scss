@@ -1,0 +1,26 @@
+.bid {
+  border-top: 3px solid #C5C5C5;
+  border-bottom: 3px solid #C5C5C5;
+
+  &__container {
+    padding: 77px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 36px;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 50px;
+  }
+}

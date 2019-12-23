@@ -1,0 +1,27 @@
+.pluses {
+  display: flex;
+  margin-top: 70px;
+  justify-content: space-between;
+
+  li {
+    flex-basis: 30%;
+    font-weight: 500;
+    font-size: 18px;
+    position: relative;
+    padding-left: 35px;
+    line-height: 25px;
+  }
+
+  li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #7B4729;
+  }
+}

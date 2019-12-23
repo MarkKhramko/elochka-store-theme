@@ -1,0 +1,80 @@
+.slider-intro {
+  height: 100%;
+  position: relative;
+
+  &__slider {
+    height: inherit;
+  }
+
+  &__slider-slide {
+    height: inherit;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__bottom {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(8px);
+    padding: 35px 25px;
+  }
+
+  &__name {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 5%;
+  }
+
+  &__paggination {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    height: 2px;
+    background-color: #C7C7C7;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__paggination-bullet {
+    border-radius: 10px;
+    display: block;
+    height: 4px;
+    flex-basis: 33.3%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    &--is-active {
+      height: 4px;
+      background-color: white;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  &__arrow {
+    cursor: pointer;
+    position: absolute;
+    padding: 20px;
+    top: -50%;
+    right: 5%;
+    border: 2px solid white;
+    content: url("./icons/arrow__white__right.svg");
+  }
+
+  .button--with-white-arrow {
+    span {
+      padding-right: 160px;
+    }
+  }
+}

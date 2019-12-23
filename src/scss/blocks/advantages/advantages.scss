@@ -1,0 +1,26 @@
+.advantages {
+  padding-bottom: 60px;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+
+  &__item {
+    flex-basis: 23%;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 38px;
+  }
+
+  &__num {
+    color: #C8C8C8;
+    font-weight: 500;
+    font-size: 64px;
+  }
+}

@@ -1,0 +1,35 @@
+.navigation {
+  font-size: 18px;
+  color: black;
+  font-weight: normal;
+
+  ul {
+    display: flex;
+
+    li {
+      margin-right: 25px;
+      position: relative;
+
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      &:hover:after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      &:after {
+        transition: transform 0.2s ease-in-out;
+        content: '';
+        position: absolute;
+        height: 2px;
+        background-color: black;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        width: 100%;
+        bottom: -10px;
+      }
+    }
+  }
+}

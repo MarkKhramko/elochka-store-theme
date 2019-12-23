@@ -1,0 +1,90 @@
+.catalog {
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__grid {
+    width: 100%;
+    flex-basis: 73%;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+  }
+
+  &__item {
+    flex-basis: 32%;
+    margin-bottom: 30px;
+
+    &--sale {
+      position: relative;
+
+      .catalog__item-sale-cost {
+        display: inline-block;
+      }
+
+      .catalog__item-cost {
+        margin-left: 30px;
+      }
+
+      &:after {
+        position: absolute;
+        content: url("../../dist/images/icons/sale.svg");
+        right: -12px;
+        top: 30px;
+      }
+    }
+  }
+
+  &__item-img {
+    height: 296px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 28px;
+  }
+
+  &__item-title {
+    font-weight: 500;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  &__item-subtitle {
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  &__item-sale-cost {
+    font-weight: 500;
+    font-size: 24px;
+    text-decoration-line: line-through;
+    color: #B1B1B1;
+    display: none;
+
+  }
+
+  &__item-cost {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 36px;
+    color: #7B4729;
+  }
+
+  .button {
+    width: 100%;
+    margin-top: 40px;
+
+    span {
+      display: block;
+      width: 100%;
+    }
+  }
+}

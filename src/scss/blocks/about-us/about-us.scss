@@ -1,0 +1,43 @@
+.about-us {
+
+
+  &__list {
+    display: flex;
+    margin-top: 80px;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__image {
+    flex-basis: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .pluses {
+    flex-basis: 50%;
+    display: block;
+    margin-left: 30px;
+    margin-top: 0;
+
+    li {
+      margin-bottom: 35px;
+
+       &:before {
+         top:10px;
+       }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__text {
+    border: 2px solid #C7C7C7;
+    padding: 130px 190px;
+  }
+}

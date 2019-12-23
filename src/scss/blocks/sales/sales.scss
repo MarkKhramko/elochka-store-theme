@@ -1,0 +1,37 @@
+.sales {
+
+  .container {
+    padding: 0 20px;
+  }
+  
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    height: 453px;
+    color: white;
+    flex-basis: 32%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 59px;
+    margin-bottom: 30px;
+  }
+
+  .button {
+    max-width: 250px;
+  }
+
+}

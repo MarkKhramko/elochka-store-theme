@@ -1,0 +1,38 @@
+.designers {
+  padding-bottom: 30px;
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .button {
+    width: 100%;
+
+    span {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+
+  &__img {
+    height: 230px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &__name {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    margin: 25px 0;
+    text-align: center;
+  }
+}

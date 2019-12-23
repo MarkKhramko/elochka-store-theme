@@ -1,0 +1,55 @@
+.knowledge {
+
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__section {
+
+  }
+
+  &__content {
+    flex-basis: 73%;
+  }
+
+  &__head {
+    font-weight: normal;
+    font-size: 24px;
+    padding-bottom: 50px;
+    border-bottom: 2px solid #DBDBDB
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: 24px;
+    margin: 40px 0;
+  }
+
+  &__grid {
+    margin-top: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-bottom: 2px solid #DBDBDB
+  }
+
+  &__item {
+    flex-basis: 32%;
+    margin-bottom: 65px;
+  }
+
+  &__item-img {
+    height: 325px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__item-name {
+    font-weight: normal;
+    font-size: 24px;
+    margin-top: 30px;
+  }
+}

@@ -1,0 +1,61 @@
+.dialog {
+
+  &__container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 95px 170px;
+  }
+
+  &__content {
+    display: flex;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(30px);
+    padding: 55px 70px;
+    align-items: center;
+  }
+
+  &__text {
+    color: black;
+    margin-right: 70px;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 58px;
+    margin-bottom: 40px;
+    margin-top: 0;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 38px;
+    margin-bottom: 0;
+  }
+
+  &__inputs {
+
+  }
+
+  .input {
+    margin-bottom: 20px;
+    color: #544B4B;
+
+    &::placeholder {
+      color: #544B4B;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      line-height: 25px;
+    }
+  }
+
+  .button {
+    margin-right: 0;
+    display: block;
+    width: 100%;
+  }
+
+}

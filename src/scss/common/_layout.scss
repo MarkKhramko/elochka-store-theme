@@ -1,0 +1,101 @@
+.container {
+  margin: 0 auto;
+  max-width: $screen-xl;
+
+  @include media(lg) {
+    max-width: $screen-lg;
+  }
+
+  @include media(md) {
+    max-width: $screen-md;
+  }
+
+  @include media(sm) {
+    max-width: $screen-sm;
+  }
+
+  @include media (xs) {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+}
+
+%container {
+  margin: 0 auto;
+  max-width: $screen-xl;
+
+  @include media(lg) {
+    max-width: $screen-lg;
+  }
+
+  @include media(md) {
+    max-width: $screen-md;
+  }
+
+  @include media(sm) {
+    max-width: $screen-sm;
+  }
+
+  @include media (xs) {
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+  }
+
+}
+
+%grid {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include media (sm) {
+    display: block;
+  }
+}
+
+@mixin cell_1-12 {
+  flex-basis: 100% / 12;
+  max-width: 100% / 12;
+}
+
+@mixin cell_1-8 {
+  flex-basis: 100% / 8;
+  max-width: 100% / 8;
+}
+
+@mixin cell_1-6 {
+  flex-basis: 100% / 6;
+  max-width: 100% / 6;
+}
+
+@mixin cell_1-5 {
+  flex-basis: 20%;
+  max-width: 20%;
+}
+
+@mixin cell_1-4 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+
+@mixin cell_1-3 {
+  flex-basis: 33.333333%;
+  max-width: 33.333333%;
+}
+
+@mixin cell_1-2 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+
+@mixin cell_1-1 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+%clearfix {
+  display: block;
+  content: "";
+  clear: both;
+}
