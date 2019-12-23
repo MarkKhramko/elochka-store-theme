@@ -17,7 +17,7 @@
 * "Главная" с URL `/`, Шаблон `Базовый шаблон`
 * "О нас" с URL `/o-nas`, Шаблон `About-us`
 * "Каталог" с URL `/katalog`, Шаблон `Catalog`
-* "Галерея" с URL `/galereya/`, Шаблон `Gallery`
+* "Галерея" с URL `/galereya`, Шаблон `Gallery`
 
 ## 4
 
