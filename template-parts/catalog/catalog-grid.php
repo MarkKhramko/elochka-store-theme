@@ -1,32 +1,68 @@
 <!-- Query parameters -->
 <?php
-	$searchQuery = get_query_var('search');
-	$priceMin = get_query_var('price_min', 0);
-	$priceMax = get_query_var('price_max', 100000000000);
+	// Config
+	$postsPerPage = 1;
 
-	// Order By filter
+	$currentCategory = get_query_var('category');
 	$orderBy = get_query_var('orderby');
-	$queryOrderBy = array(
-		'orderby' => 'meta_value_num',
-		'meta_key' => '_price',
-		'order' => 'desc'
-	);
 
-	$metaQuery = array();
-	// array(
-	// 		'key' => '_price',
-	// 		'value' => array($priceMin, $priceMax),
-	// 		'compare' => 'BETWEEN',
-	// 		'type' => 'NUMERIC'
-	// 	)
+	$searchQuery = get_query_var('search');
+
+	// Get minimal available price
+	$priceMin = get_query_var('price_min', 0);
+	if ($priceMin === '')
+		$priceMin = 0;
+
+	// Get maximal available price
+	$priceMax = get_query_var('price_max', 100000000000);
+	if ($priceMax === '')
+		$priceMax = 100000000000;
+
+	// Get page
+	$currentPage = get_query_var('page');
+	$currentPage = $currentPage ? $currentPage : 1;
+
+	$metaQuery = array(
+		array(
+			'key' => '_price',
+			'value' => array($priceMin, $priceMax),
+			'compare' => 'BETWEEN',
+			'type' => 'NUMERIC'
+		)
+	);
+	
 
 	$params = array(
-		'posts_per_page' => 9,
-		'offset'         => 0,
+		'posts_per_page' => $postsPerPage,
+		'offset' => ($currentPage - 1) * $postsPerPage,
 		'post_type' => 'product',
 
 		'meta_query' => $metaQuery
 	);
+
+	// If category defined, add to query
+	if (!!$currentCategory){
+		$taxQuery = array(
+			array(
+				'taxonomy' => 'product_cat',
+				'field' => 'slug',
+				'terms' => $currentCategory
+			)
+		);
+		$params['tax_query'] = $taxQuery;
+	}
+
+	// If order by defined, add to query
+	if (!!$orderBy){
+		$queryOrderBy = array(
+			'orderby' => 'meta_value_num',
+			'meta_key' => '_price',
+			'order' => 'desc'
+		);
+	}
+
+	// var_dump($params);
+
 	$wc_query = new WP_Query($params);
 ?>
 <div class="catalog__grid">
@@ -53,7 +89,7 @@
 					<div class="catalog__item-subtitle">
 						<?php echo $product->get_attribute('razmer'); ?>
 					</div>
-					<?php if (!!$onSale) : ?>
+					<?php if ($onSale) : ?>
 						<div class="catalog__item-sale-cost">
 							<?php echo wc_price($regularPrice); ?>
 						</div>
@@ -61,7 +97,7 @@
 					<div class="catalog__item-cost">
 						<?php echo wc_price($price); ?>
 					</div>
-					<a href="<?php echo $productLink; ?>" class="button button--tr button--with-grey-arrow">
+					<a href="<?php the_permalink(); ?>" class="button button--tr button--with-grey-arrow">
 						<span>Описание</span>
 					</a>
 				</div>
@@ -73,16 +109,5 @@
 			</p>
 		<?php endif; ?>
 	</div>
-	<div class="paggination">
-		<div class="paggination__arrow paggination__arrow--left"></div>
-		<div class="paggination__count">
-			<ul>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-			</ul>
-		</div>
-		<div class="paggination__arrow paggination__arrow--right"></div>
-	</div>
+	<?php _get_template_part('./template-parts/catalog/catalog-pagination', null, ['wc_query' => $wc_query]) ?>
 </div>

@@ -1,37 +1,22 @@
 <?php
 
-	$show_default_orderby = 'menu_order' === apply_filters('woocommerce_default_catalog_orderby', get_option('woocommerce_default_catalog_orderby'));
-	$catalog_orderby_options = apply_filters('woocommerce_catalog_orderby', array(
-		'menu_order' => __('Default sorting', 'woocommerce'),
-		'date'       => "Товары: сначала новые",
-		'date-des'       => "Товары: сначала старые",
-		'price'      => "Цены: по возрастанию",
-		'price-desc' => "Цены: по убыванию"
-	));
-
-	$default_orderby = wc_get_loop_prop('is_search') ? 'relevance' : apply_filters('woocommerce_default_catalog_orderby', get_option( 'woocommerce_default_catalog_orderby', ''));
-
 	// WPCS: sanitization ok, input var ok, CSRF ok.
-	$orderby = isset($_GET['orderby']) ? wc_clean(wp_unslash($_GET['orderby'])) : $default_orderby;
+	$orderby = get_query_var('orderby');
 
-	if (wc_get_loop_prop('is_search')) {
-		$catalog_orderby_options = array_merge(array('relevance' => __('Relevance', 'woocommerce')), $catalog_orderby_options);
+	$orderByOptions = array(
+		'none' => 'Сортировать по:',
+		'date-asc' => "Дата: сначала новые",
+		'date-desc' => "Дата: сначала старые",
+		'price-asc' => "Цены: по возрастанию",
+		'price-desc' => "Цены: по убыванию"
+	);
 
-		unset($catalog_orderby_options['menu_order']);
-	}
-
-	if (!$show_default_orderby) {
-		unset( $catalog_orderby_options['menu_order']);
-	}
-
-	if (!array_key_exists($orderby, $catalog_orderby_options)) {
-		$orderby = current(array_keys($catalog_orderby_options));
-	}
+	$currentKey = isset($orderby) && $orderby != "" ? $orderby : "none";
 ?>
 
-<select name="orderby" form="elochka-main-filter" onchange="document.getElementById('elochka-main-filter').submit()">
-	<?php foreach ($catalog_orderby_options as $key => $value) : ?>
-		<option value="<?php echo $key; ?>" selected="<?php $value === $orderby; ?>">
+<select id="filter-orderby" name="orderby" form="elochka-main-filter">
+	<?php foreach ($orderByOptions as $key => $value) : ?>
+		<option value="<?php echo $key; ?>" <?php if ($key == $orderby) echo 'selected'; ?>>
 			<?php echo $value; ?>
 		</option>
 	<?php endforeach; ?>

@@ -21,6 +21,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $product;
 
+	$t_t = "TEST";
+	var_dump($t_t);
+
 ?>
 <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 
