@@ -33,9 +33,8 @@
 			</h2>
 			<div class="catalog-single__item">
 				<div class="catalog-single__photos">
-					<div
-						class="catalog-single__img catalog-single__img--big"
-						style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_1.png')"></div>
+					<?php the_post_thumbnail('large', ['class' => 'catalog-single__img catalog-single__img--bi']);?>
+
 					<div class="catalog-single__img catalog-single__img--small"
 						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 					<div class="catalog-single__img catalog-single__img--small"
@@ -47,12 +46,13 @@
 				</div>
 				<div class="catalog-single__info">
 					<p class="text">
-						Размеры: 420х70х15 (1,0584 м2) Соответствует ГОСТ 862.1 — 85. Влажность — 8-10%.
+						Размеры: <?php //echo size ?> Соответствует ГОСТ 862.1 — 85. Влажность — 8-10%.
 						<br><br>
-						Это экологически чистый продукт высшей категории качества. произведён на оборудовании и по технологии
-						немецких и итальянских производителей.
+						<?php
+							echo $product->get_description();
+						?>
 						<br><br>
-						Артикул: 1A01103
+						Артикул: <?php //ehco articul ?>
 					</p>
 					<div class="catalog-single__cost">
 						<?php echo wc_price($price); ?>
@@ -70,26 +70,22 @@
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>Размер</td>
-							<td>420х70х15</td>
-						</tr>
-						<tr>
-							<td>УП</td>
-							<td>1, 0584 м2</td>
-						</tr>
-						<tr>
-							<td>Фаска</td>
-							<td>нет</td>
-						</tr>
-						<tr>
-							<td>Порода дерева</td>
-							<td>мербау</td>
-						</tr>
-						<tr>
-							<td>Цвет</td>
-							<td>натуральный без покрытия</td>
-						</tr>
+							<?php
+								foreach($product->get_attributes() as $taxonomy => $attribute) :
+									$attributeName = wc_attribute_label($taxonomy); // Attribute name
+
+									if ($attribute->get_terms()) :
+										foreach ($attribute->get_terms() as $term) :
+							?>
+											<tr>
+												<td><?php echo $attributeName; ?></td>
+												<td><?php echo $term->name; ?></td>
+											</tr>
+							<?php
+										endforeach;
+									endif;
+								endforeach;
+							?>
 						</tbody>
 					</table>
 				</div>

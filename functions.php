@@ -52,9 +52,35 @@
 	/*
 	 *	WooCommerce setup
 	 */
-	add_action( 'after_setup_theme', function() {
+	// Set woocommerce support
+	add_action('after_setup_theme', function() {
 		add_theme_support( 'woocommerce' );
 	});
+
+	
+	// Set breadcrumbs category as query param, instead of URL
+	function custom_change_breadcrumb($crumbs) {
+		$newCrumbs = array();
+		if(!empty($crumbs)):
+			foreach ($crumbs as $crumb):
+
+				$newCrumb = array();
+				$newCrumb[0] = $crumb[0];
+				if (preg_match("/product-category/i", $crumb[1])){
+					$category = get_term_by('name', $crumb[0], 'product_cat');
+					$newCrumb[1] = '/katalog/?category=' . $category->slug;
+				}
+				else{
+					$newCrumb[1] = $crumb[1];
+				}
+
+				$newCrumbs[] = $newCrumb;
+			endforeach;
+		endif;
+
+		return $newCrumbs;
+	}
+	add_filter( 'woocommerce_get_breadcrumb', 'custom_change_breadcrumb' );
 
 	// Remove all WooCommerce Styles
 	add_filter('woocommerce_enqueue_styles', '__return_empty_array' );
