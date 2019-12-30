@@ -9,7 +9,7 @@
 	$pad_counts   = 0; // 1 for yes, 0 for no
 	$hierarchical = 1; // 1 for yes, 0 for no  
 	$title        = '';
-	$empty        = 0;
+	$hideEmpty    = 1;
 
 	$args = array(
 		'taxonomy'     => $taxonomy,
@@ -18,7 +18,7 @@
 		'pad_counts'   => $pad_counts,
 		'hierarchical' => $hierarchical,
 		'title_li'     => $title,
-		'hide_empty'   => $empty
+		'hide_empty'   => $hideEmpty
 	);
 	$all_categories = get_categories($args);
 
@@ -49,7 +49,7 @@
 							'pad_counts'   => $pad_counts,
 							'hierarchical' => $hierarchical,
 							'title_li'     => $title,
-							'hide_empty'   => $empty
+							'hide_empty'   => $hideEmpty
 						);
 
 						$sub_cats = get_categories($args2);
@@ -69,7 +69,7 @@
 					<?php endforeach; endif; ?>
 				</ul>
 			</div>
-		</br>
+			</br>
 <?php	
 		endif;
 	endforeach;

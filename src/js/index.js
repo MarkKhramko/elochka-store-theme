@@ -36,27 +36,55 @@ function serializeFilterData(){
 	// Setup our serialized data
 	const serialized = [];
 
+	// Handle category
+	let selectedCategory = null;
 	const categoryButtons = document.querySelectorAll('[data-name="category"]');
-
-	console.log("serializeFilterData", categoryButtons);
-
 	categoryButtons.forEach((button)=>{
 
-		if (!button.dataset.selected)
+		if (button.dataset.selected === 'false')
 			return;
 
-		serialized.push({
+		selectedCategory = {
 			name: button.dataset.name,
 			value: button.dataset.slug
-		});
+		};
 	});
+	if (!!selectedCategory)
+		serialized.push(selectedCategory);
+
+	// Handle attributes
+	const selectedTerms = [];
+	const selectedTermsIds = [];
+	const attributesInputs = document.querySelectorAll('input[name="attributes"]');
+	attributesInputs.forEach((input)=>{
+		if (!input.checked)
+			return;
+
+		const parentDiv = input.closest('[data-name="attributes-container"]');
+		console.log({ parentDiv });
+		const termTaxonomy = parentDiv.dataset.tax_key;
+		if (selectedTerms.indexOf(termTaxonomy) === -1)
+			selectedTerms.push(termTaxonomy);
+
+		selectedTermsIds.push(input.value);
+	});
+
+	if (selectedTerms.length > 0){
+		serialized.push({
+			name: 'term-names',
+			value: selectedTerms
+		});
+
+		serialized.push({
+			name: 'attributes',
+			value: selectedTermsIds
+		});
+	}
 	
 	return serialized;
 }
 
 function _handleFilterFormSubmit(){
-	console.log("_handleCategoryButtonClick");
-
 	const form = document.getElementById("elochka-main-filter");
 	// Get information from form
 	const formData = serializeForm(form);
@@ -67,7 +95,7 @@ function _handleFilterFormSubmit(){
 
 	// Submit query
 	const url = buildQuery(fullQuery);
-	window.location.href = url;
+	window.location.href = `/katalog/${url}`;
 	return false;
 }
 
@@ -80,6 +108,12 @@ function _handleOrderByChange(event){
 }
 
 function _handleCategoryButtonClick(event){
+	// Deselect all previous
+	const categoryButtons = document.querySelectorAll('[data-name="category"]');
+	categoryButtons.forEach((button)=>{
+		button.dataset.selected = false;
+	});
+
 	// Set selected
 	event.target.dataset.selected = true;
 	// Submit form
@@ -87,6 +121,11 @@ function _handleCategoryButtonClick(event){
 
 	// Stop click event
 	return false;
+}
+
+function _handleAttributesChange(event){
+	// Submit form
+	_handleFilterFormSubmit();
 }
 
 function registerFormSubmit(){
@@ -104,11 +143,14 @@ function registerFilterSubmit(){
 	categoryButtons.forEach((button)=>{
 		button.onclick = _handleCategoryButtonClick;
 	});
+
+	const attributesInputs = document.querySelectorAll('input[name="attributes"]');
+	attributesInputs.forEach((input)=>{
+		input.onchange = _handleAttributesChange;
+	});
 }
 
 window.onload = function(){
-	console.log("JS Starts!");
-
 	const currentPath = window.location.pathname;
 
 	// If it's catalog

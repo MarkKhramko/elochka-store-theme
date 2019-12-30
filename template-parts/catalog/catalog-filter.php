@@ -25,6 +25,8 @@
 	<div class="sidebar">
 			<div class="filters">
 				<?php get_template_part('./template-parts/catalog/filter-category'); ?>
+				</br>
+				</br>
 				<?php get_template_part('./template-parts/catalog/filter-attribute'); ?>
 			</div>
 		</form>

@@ -79,7 +79,9 @@
 	 * Register custom query vars
 	 */
 	function elochka_register_query_vars($vars) {
+		$vars[] = 'attributes';
 		$vars[] = 'category';
+		$vars[] = 'term-names';
 		$vars[] = 'orderby';
 		$vars[] = 'search';
 		$vars[] = 'price_min';

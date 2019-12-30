@@ -3,9 +3,22 @@
 	// Config
 	$postsPerPage = 1;
 
-	$currentCategory = get_query_var('category');
-	$orderBy = get_query_var('orderby');
+	// Get current terms & ids
+	$queryTerms = get_query_var('term-names', '');
+	$queryAttributes = get_query_var('attributes', '');
 
+	$selectedTerms = array();
+	if ($queryTerms != ''){
+		$selectedTerms = explode(',', $queryTerms);
+	}
+
+	$currentAttributes = array();
+	if ($queryAttributes != ''){
+		$currentAttributes = explode(',', $queryAttributes);
+	}
+
+	$currentCategory = get_query_var('category');
+	$orderBy = get_query_var('orderby', null);
 	$searchQuery = get_query_var('search');
 
 	// Get minimal available price
@@ -22,6 +35,7 @@
 	$currentPage = get_query_var('page');
 	$currentPage = $currentPage ? $currentPage : 1;
 
+	// Add price range
 	$metaQuery = array(
 		array(
 			'key' => '_price',
@@ -37,31 +51,57 @@
 		'offset' => ($currentPage - 1) * $postsPerPage,
 		'post_type' => 'product',
 
-		'meta_query' => $metaQuery
+		'meta_query' => $metaQuery,
+		'tax_query' => array()
 	);
+
+	// If terms & attributes defined, add to query
+	if (count($selectedTerms) > 0 && count($currentAttributes) > 0) {
+		foreach ($selectedTerms as $termName) {
+			$params['tax_query'][] = array(
+				'taxonomy' => $termName,
+				'field' => 'term_id',
+				'terms' => $currentAttributes,
+				'operator' => 'IN'
+			);
+		}
+	}
 
 	// If category defined, add to query
 	if (!!$currentCategory){
-		$taxQuery = array(
-			array(
-				'taxonomy' => 'product_cat',
-				'field' => 'slug',
-				'terms' => $currentCategory
-			)
+		$params['tax_query'][] = array(
+			'taxonomy' => 'product_cat',
+			'field' => 'slug',
+			'terms' => $currentCategory
 		);
-		$params['tax_query'] = $taxQuery;
 	}
 
 	// If order by defined, add to query
 	if (!!$orderBy){
-		$queryOrderBy = array(
-			'orderby' => 'meta_value_num',
-			'meta_key' => '_price',
-			'order' => 'desc'
-		);
-	}
+		$orderByQueryLabel = '';
+		$orderByQueryKey = '';
+		if (preg_match("/date/i", $orderBy)){
+			$orderByQueryLabel = 'date';
+		}
 
-	// var_dump($params);
+		if (preg_match("/price/i", $orderBy)){
+			$orderByQueryLabel = 'meta_value_num';
+			$orderByQueryKey = '_price';
+		}
+
+		$orderByQueryOrder = 'asc';
+		if (preg_match("/desc/i", $orderBy))
+			$orderByQueryOrder = 'desc';
+		
+
+		$queryOrderBy = array(
+			'orderby' => $orderByQueryLabel,
+			'meta_key' => $orderByQueryKey,
+			'order' => $orderByQueryOrder
+		);
+
+		$params = array_merge($params, $queryOrderBy);
+	}
 
 	$wc_query = new WP_Query($params);
 ?>
