@@ -16,7 +16,14 @@
 					<li>Большой ассортимент товара</li>
 				</ul>
 				<div class="socials">
-					социал иконки через плагин
+					<div class="socials__icons">
+                        <a href="#" class="socials__icon socials__icon--google"></a>
+                        <a href="#" class="socials__icon socials__icon--vk"></a>
+                        <a href="#" class="socials__icon socials__icon--instagram"></a>
+                        <a href="#" class="socials__icon socials__icon--twitter"></a>
+                        <a href="#" class="socials__icon socials__icon--pinterest"></a>
+                        <a href="#" class="socials__icon socials__icon--youtube"></a>
+                    </div>
 				</div>
 			</div>
 		</div>

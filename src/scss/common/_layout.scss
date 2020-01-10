@@ -3,21 +3,32 @@
   max-width: $screen-xl;
 
   @include media(lg) {
-    max-width: $screen-lg;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   @include media(md) {
-    max-width: $screen-md;
+    max-width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;
   }
 
   @include media(sm) {
-    max-width: $screen-sm;
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 
   @include media (xs) {
     width: 100%;
-    padding: 0 15px;
-    box-sizing: border-box;
+    padding: 0 10px !important;
+
+  }
+
+  @include media (xxs) {
+    width: 100%;
+    padding: 0 10px;
   }
 }
 

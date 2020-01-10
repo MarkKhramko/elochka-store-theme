@@ -3,6 +3,16 @@
   margin-top: 70px;
   justify-content: space-between;
 
+  @include media (sm) {
+    display: inline-block;
+    margin: 40px auto 0;
+  }
+
+  @include media (xs) {
+    display: block;
+    width: 100%;
+  }
+
   li {
     flex-basis: 30%;
     font-weight: 500;
@@ -10,6 +20,10 @@
     position: relative;
     padding-left: 35px;
     line-height: 25px;
+
+    @include media (lg) {
+      font-size: 16px;
+    }
   }
 
   li:before {

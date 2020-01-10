@@ -36,4 +36,56 @@ p {
   font-weight: normal;
   font-size: 48px;
   margin: 70px 0;
+
+  @include media (sm) {
+    margin: 40px 0;
+  }
+
+  @include media (xs) {
+    font-size: 35px;
+  }
+}
+
+.unscroll {
+  overflow-y: hidden;
+}
+
+//woocommerce
+.search-textbox {
+  padding: 11.5px 15px 11.5px 60px;
+  box-shadow: none;
+  outline: 0;
+  border: 2px solid #DBDBDB;
+  background: url("../../../images/icons/search.svg") 5% 50% no-repeat;
+  flex-basis: 25%;
+}
+
+.search-button {
+  display: none;
+
+}
+
+#elochka-main-filter {
+  width: 100%;
+}
+
+.price-textbox {
+  padding: 11.5px 15px 11.5px 10px;
+  box-shadow: none;
+  outline: 0;
+  border: 2px solid #DBDBDB;
+  max-width: 115px;
+
+  &::placeholder {
+    font-size: 15px;
+  }
+}
+
+#filter-orderby {
+  padding: 9px 15px 10px 10px;
+  box-shadow: none;
+  outline: 0;
+  border: 2px solid #DBDBDB;
+  font-weight: 500;
+  font-size: 18px;
 }

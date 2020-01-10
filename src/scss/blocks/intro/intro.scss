@@ -1,10 +1,26 @@
 .intro {
-  height: 100vh;
 
   .container {
     display: flex;
     justify-content: space-between;
     height: 100%;
+
+    @include media (lg) {
+      padding: 0;
+      padding-left: 20px;
+    }
+
+    @include media (sm) {
+      display: block;
+      padding: 0 15px;
+    }
+  }
+
+  &__container {
+    @include media (sm) {
+      text-align: center;
+      width: 100%;
+    }
   }
 
   &__left {
@@ -12,10 +28,30 @@
     padding-right: 5%;
     display: flex;
     align-items: center;
+    padding-top: 160px;
+    padding-bottom: 90px;
+
+    @include media (lg) {
+      padding-top: 120px;
+    }
+
+    @include media (md) {
+      padding-top: 80px;
+    }
+
+    @include media (sm) {
+      padding-top: 20px;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
   }
 
   &__right {
     flex-basis: 50%;
+
+    @include media (sm) {
+      display: none;
+    }
   }
 
   &__name {
@@ -27,9 +63,26 @@
     font-weight: normal;
     text-transform: uppercase;
     margin: 40px 0;
+
+    @include media (sm) {
+      font-size: 62px;
+    }
+
+    @include media (xs) {
+      font-size: 30px;
+    }
   }
 
   .button--brown {
     margin-right: 20px;
+
+    @include media (lg) {
+      margin-bottom: 20px;
+      margin-right: 0;
+    }
+  }
+
+  .button--tr {
+    min-width: 290px;
   }
 }

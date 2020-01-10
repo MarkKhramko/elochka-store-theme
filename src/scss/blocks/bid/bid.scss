@@ -7,20 +7,41 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    @include media (xs) {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px 0;
+    }
   }
 
   &__text {
     display: inline-block;
+
+    @include media (xs) {
+      display: block;
+    }
   }
 
   &__title {
     font-weight: bold;
     font-size: 36px;
+
+    @include media (xs) {
+      margin-top: 0;
+    }
   }
 
   &__subtitle {
     font-weight: normal;
     font-size: 24px;
     line-height: 50px;
+  }
+
+  @include media (lg) {
+    .button {
+      max-width: 300px;
+    }
   }
 }

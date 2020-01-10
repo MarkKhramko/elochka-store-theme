@@ -7,18 +7,31 @@
   &__container {
     display: flex;
     border: 3px solid #D2D2D2;
+
+    @include media (sm) {
+      flex-direction: column;
+    }
   }
 
   &__img {
     flex-basis: 50%;
+    min-height: 600px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @include media (xs) {
+      min-height: 400px;
+    }
   }
 
   &__description {
     flex-basis: 50%;
     padding: 78px 74px 58px;
+
+    @include media (xs) {
+      padding: 20px;
+    }
   }
 
   &__subtitle {

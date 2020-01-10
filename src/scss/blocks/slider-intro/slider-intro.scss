@@ -2,8 +2,11 @@
   height: 100%;
   position: relative;
 
+
   &__slider {
-    height: inherit;
+    height: 100%;
+
+
   }
 
   &__slider-slide {
@@ -11,6 +14,11 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include media (sm) {
+      min-height: 600px;
+    }
+
   }
 
   &__bottom {
@@ -73,8 +81,10 @@
   }
 
   .button--with-white-arrow {
+    min-width: 300px;
     span {
-      padding-right: 160px;
+      display: inline-block;
+      width: 100%;
     }
   }
 }

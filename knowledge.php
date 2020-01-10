@@ -20,7 +20,7 @@
 		<h2 class="title">Энциклопедия пола</h2>
 		<div class="knowledge__container">
 			<div class="sidebar">
-				поиск и фильтры
+				<input class="search">
 			</div>
 			<div class="knowledge__content">
 				<div class="knowledge__head">Простой и понятный путеводитель о том, с чего начать знакомство с

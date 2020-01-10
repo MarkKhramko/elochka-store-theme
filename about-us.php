@@ -37,7 +37,7 @@
 				</li>
 			</ul>
 		</div>
-		<?php get_template_part('./template-parts/advantages') ?>
+		<?php get_template_part('./template-parts/home/advantages') ?>
 		<div class="about-us__text">
 			<p>Мы обладаем энциклопедическими знаниями в области напольных покрытий. задайте любой вопрос касаемо
 				напольных покрытий, технологий укладки, подготовки и требования к основаниям и сомнений в уровне нашей
@@ -55,7 +55,7 @@
 				сомневаться, посетите наш салон и поставьте точку в вопросе напольных покрытий.
 			</p>
 		</div>
-		<?php get_template_part('./template-parts/dialog') ?>
+		<?php get_template_part('./template-parts/home/dialog') ?>
 	</div>
 </section>
 

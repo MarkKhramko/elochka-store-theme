@@ -42,16 +42,17 @@
 
 	foreach ($attributesList as $taxonomyKey => $attributeData) :
 ?>
-	<div data-tax_key="<?php echo $taxonomyKey; ?>" data-name="attributes-container" class="">
-		<button
+	<div data-tax_key="<?php echo $taxonomyKey; ?>" data-name="attributes-container" class="filters__option">
+		<button class="filters__attr"
 		>
 			<?php echo $attributeData['name']; ?>
 		</button>
-		<ul>
+		<ul class="filters__list">
 			<?php
 				foreach($attributeData['terms'] as $term) :
 			?>
-				<li>
+				<li class="filters__item">
+                    <label>
 					<input
 						type="checkbox"
 						name="attributes"
@@ -67,9 +68,10 @@
 					>
 						<?php echo $term['name']; ?>
 					</input>
+                    </label>
 				</li>
+
 			<?php endforeach; ?>
 		</ul>
 	</div>
-	</br>
 <?php	endforeach; ?>

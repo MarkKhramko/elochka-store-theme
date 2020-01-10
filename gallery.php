@@ -30,10 +30,6 @@
 				<div class="gallery__item-img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<div class="gallery__item-name">Подборки интерьеров</div>
 			</a>
-			<a href="#" class="gallery__item">
-				<div class="gallery__item-img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
-				<div class="gallery__item-name">Работы наших партнеров</div>
-			</a>
 		</div>
 	</div>
 </section>

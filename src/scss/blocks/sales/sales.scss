@@ -7,6 +7,7 @@
   &__list {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__item {
@@ -21,6 +22,15 @@
     flex-direction: column;
     justify-content: flex-end;
 
+    @include media (lg) {
+      flex-basis: 100%;
+      margin-bottom: 20px;
+    }
+
+    @include media (xs) {
+      height: 300px;
+    }
+
   }
 
   &__title {
@@ -28,6 +38,10 @@
     font-size: 48px;
     line-height: 59px;
     margin-bottom: 30px;
+
+    @include media (xs) {
+      font-size: 32px;
+    }
   }
 
   .button {

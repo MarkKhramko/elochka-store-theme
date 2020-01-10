@@ -1,9 +1,17 @@
 .popular {
   padding-bottom: 90px;
 
+  @include media (sm) {
+    padding-bottom: 0;
+  }
+
   .button {
     width: 100%;
     margin-top: 40px;
+
+    @include media (sm) {
+      margin-top: 0;
+    }
   }
 
   &--with-cost {
@@ -61,6 +69,15 @@
         right: -12px;
         top: 30px;
       }
+    }
+
+    @include media (sm) {
+      flex-basis: 49%;
+      margin-bottom: 20px;
+    }
+
+    @include media (xs) {
+      flex-basis: 100%;
     }
   }
 

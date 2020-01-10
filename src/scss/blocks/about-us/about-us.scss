@@ -3,7 +3,7 @@
 
   &__list {
     display: flex;
-    margin-top: 80px;
+    margin-top: 120px;
   }
 
   &__img {
@@ -38,6 +38,7 @@
 
   &__text {
     border: 2px solid #C7C7C7;
+    border-bottom: 0;
     padding: 130px 190px;
   }
 }

@@ -19,7 +19,16 @@
 					</h3>
 					<a href="#" class="footer__data">+79235323377</a>
 					<a href="#" class="footer__data">info@elochka42.ru</a>
-					<div class="footer__socials"></div>
+                    <div class="socials">
+                        <div class="socials__icons">
+                            <a href="#" class="socials__icon socials__icon--google"></a>
+                            <a href="#" class="socials__icon socials__icon--vk"></a>
+                            <a href="#" class="socials__icon socials__icon--instagram"></a>
+                            <a href="#" class="socials__icon socials__icon--twitter"></a>
+                            <a href="#" class="socials__icon socials__icon--pinterest"></a>
+                            <a href="#" class="socials__icon socials__icon--youtube"></a>
+                        </div>
+                    </div>
 				</div>
 				<div class="footer__rights">
 					ООО "Ёлочка" © 2018. все права защищены. копирование и использование материалов сайта только со ссылкой

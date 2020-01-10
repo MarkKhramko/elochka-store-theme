@@ -29,16 +29,17 @@
 			$category_id = $cat->term_id;
 			$slug = $cat->slug;
 ?>
-			<div class="">
+			<div class="filters__container">
 				<button 
 					type="submit" 
 					data-name="category" 
 					data-slug="<?php echo $slug; ?>" 
 					data-selected="<?php echo $currentCategory === $slug ? 'true' : 'false' ?>"
+                    class="filters__category"
 				>
 					<?php echo $cat->name; ?>
 				</button>
-				<ul>
+				<ul class="filters__subcategory">
 					<?php
 						$args2 = array(
 							'taxonomy'     => $taxonomy,
@@ -69,7 +70,7 @@
 					<?php endforeach; endif; ?>
 				</ul>
 			</div>
-			</br>
+
 <?php	
 		endif;
 	endforeach;

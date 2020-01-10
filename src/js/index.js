@@ -1,188 +1,71 @@
-
-function buildQuery(formData){
-	// Setup our serialized data
-	const serialized = [];
-
-	for(let i=0; i < formData.length; i++){
-		const fieldData = formData[i];
-		serialized.push(encodeURIComponent(fieldData.name) + "=" + encodeURIComponent(fieldData.value));
-	}
-
-	return "?" + (serialized.join('&'));
-}
-
-function serializeForm(form){
-	// Setup our serialized data
-	const serialized = [];
-
-	// Loop through each field in the form
-	for (let i = 0; i < form.elements.length; i++) {
-		const field = form.elements[i];
-
-		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') 
-			continue;
-
-		serialized.push({
-			name: field.name,
-			value: field.value
-		});
-	}
-
-	return serialized;
-}
-
-function serializeFilterData(){
-	// Setup our serialized data
-	const serialized = [];
-
-	// Handle category
-	let selectedCategory = null;
-	const categoryButtons = document.querySelectorAll('[data-name="category"]');
-	categoryButtons.forEach((button)=>{
-
-		if (button.dataset.selected === 'false')
-			return;
-
-		selectedCategory = {
-			name: button.dataset.name,
-			value: button.dataset.slug
-		};
-	});
-	if (!!selectedCategory)
-		serialized.push(selectedCategory);
-
-	// Handle attributes
-	const selectedTerms = [];
-	const selectedTermsIds = [];
-	const attributesInputs = document.querySelectorAll('input[name="attributes"]');
-	attributesInputs.forEach((input)=>{
-		if (!input.checked)
-			return;
-
-		const parentDiv = input.closest('[data-name="attributes-container"]');
-		console.log({ parentDiv });
-		const termTaxonomy = parentDiv.dataset.tax_key;
-		if (selectedTerms.indexOf(termTaxonomy) === -1)
-			selectedTerms.push(termTaxonomy);
-
-		selectedTermsIds.push(input.value);
-	});
-
-	if (selectedTerms.length > 0){
-		serialized.push({
-			name: 'term-names',
-			value: selectedTerms
-		});
-
-		serialized.push({
-			name: 'attributes',
-			value: selectedTermsIds
-		});
-	}
-	
-	return serialized;
-}
-
-function _handleFilterFormSubmit(){
-	const form = document.getElementById("elochka-main-filter");
-	// Get information from form
-	const formData = serializeForm(form);
-	// Get information from filter
-	const filterData = serializeFilterData();
-	// Merge data
-	const fullQuery = formData.concat(filterData);
-
-	// Submit query
-	const url = buildQuery(fullQuery);
-	window.location.href = `/katalog/${url}`;
-	return false;
-}
-
-function _handleOrderByChange(event){
-	// Submit form
-	_handleFilterFormSubmit();
-
-	// Stop click event
-	return false;
-}
-
-function _handleCategoryButtonClick(event){
-	// Deselect all previous
-	const categoryButtons = document.querySelectorAll('[data-name="category"]');
-	categoryButtons.forEach((button)=>{
-		button.dataset.selected = false;
-	});
-
-	// Set selected
-	event.target.dataset.selected = true;
-	// Submit form
-	_handleFilterFormSubmit();
-
-	// Stop click event
-	return false;
-}
-
-function _handleAttributesChange(event){
-	// Submit form
-	_handleFilterFormSubmit();
-}
-
-function registerFormSubmit(){
-	const filterForm = document.getElementById("elochka-main-filter");
-	filterForm.onsubmit = _handleFilterFormSubmit;
-}
-
-function registerOrderBySubmit(){
-	const orderByInput = document.getElementById("filter-orderby");
-	orderByInput.onchange = _handleOrderByChange;
-}
-
-function registerFilterSubmit(){
-	const categoryButtons = document.querySelectorAll('[data-name="category"]');
-	categoryButtons.forEach((button)=>{
-		button.onclick = _handleCategoryButtonClick;
-	});
-
-	const attributesInputs = document.querySelectorAll('input[name="attributes"]');
-	attributesInputs.forEach((input)=>{
-		input.onchange = _handleAttributesChange;
-	});
-}
+import API from './api.service';
+ 
 
 window.onload = function(){
+	console.log("JS Starts!");
+
 	const currentPath = window.location.pathname;
 
-	// If it's catalog
+	// If we're in a catalog
 	if (currentPath.includes("/katalog")){
-		registerFormSubmit();
-		registerOrderBySubmit();
-		registerFilterSubmit();
 
-		// // Fetch products
-		// API.products.get()
-		// .then(function(response) {
-		// 	// handle success
-		// 	console.log({response});
-		// 	const data = response.data;
-		// 	console.log({ data });
-		// })
-		// .catch(function (error) {
-		// 	// handle error
-		// 	console.error("Axios get error:", error);
-		// });
+		// Fetch products
+		API.products.get()
+		.then(function(response) {
+			// handle success
+			console.log({response});
+			const data = response.data;
+			console.log({ data });
+		})
+		.catch(function (error) {
+			// handle error
+			console.error("Axios get error:", error);
+		});
 
-		// // Fetch attributes
-		// API.attributes.get()
-		// .then(function(response) {
-		// 	// handle success
-		// 	console.log({response});
-		// 	const data = response.data;
-		// 	console.log({ data });
-		// })
-		// .catch(function (error) {
-		// 	// handle error
-		// 	console.error("Axios get error:", error);
-		// });
+		// Fetch attributes
+		API.attributes.get()
+		.then(function(response) {
+			// handle success
+			console.log({response});
+			const data = response.data;
+			console.log({ data });
+		})
+		.catch(function (error) {
+			// handle error
+			console.error("Axios get error:", error);
+		});
 	}
+
+	//slick-slider
+
+
+	/*$('.slider-intro__slider').slick();*/
+
+	//Filter buttons click
+	$('.filters__attr').click(function () {
+		$(this).toggleClass('filters__attr--active');
+		$(this).next().toggleClass('filters__list--active');
+	})
+
+	$('.filters__item input[type="checkbox"]').click(function () {
+		if($(this).prop('checked') === true) {
+			$(this).parent().parent().addClass('filters__item--active')
+ 		} else {
+			$(this).parent().parent().removeClass('filters__item--active')
+		}
+	})
+
+	$('.filters__category').click(function () {
+		$(this).toggleClass('filters__category--active')
+		$(this).next().toggleClass('filters__subcategory--active');
+	})
+
+	//Burger-menu
+	$('.header__mobile-btn').click(function () {
+		$(this).toggleClass('header__mobile-btn--active');
+		$('.navigation--mobile').toggleClass('navigation--active');
+		$('body').toggleClass('unscroll')
+	})
 };
+
+

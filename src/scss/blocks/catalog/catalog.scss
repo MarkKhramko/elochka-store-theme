@@ -11,6 +11,23 @@
     flex-basis: 73%;
   }
 
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__inputs {
+    flex-basis: 73%;
+
+    label {
+      margin-left: 20px;
+    }
+
+  }
+
   &__list {
     display: flex;
     flex-wrap: wrap;
@@ -48,6 +65,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin-bottom: 28px;
+    width: 100%;
   }
 
   &__item-title {

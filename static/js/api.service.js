@@ -426,7 +426,7 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/elochka42/wp-content/themes/elochka-store/src/js/api.service.js */\"./js/api.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/api.service.js?");
+eval("module.exports = __webpack_require__(/*! C:\\OSPanel\\domains\\elochka-blyadskaya\\wp-content\\themes\\elochka-store\\src\\js\\api.service.js */\"./js/api.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/api.service.js?");
 
 /***/ })
 

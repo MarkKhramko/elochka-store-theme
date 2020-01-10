@@ -77,7 +77,7 @@
 		</div>
 	</div>
 </section>
-<?php get_template_part('./template-parts/popular') ?>
+<?php get_template_part('./template-parts/home/popular') ?>
 <?php
 	get_footer();
 ?>

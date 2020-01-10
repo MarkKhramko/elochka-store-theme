@@ -33,7 +33,7 @@
 			</h2>
 			<div class="catalog-single__item">
 				<div class="catalog-single__photos">
-					<?php the_post_thumbnail('large', ['class' => 'catalog-single__img catalog-single__img--bi']);?>
+					<?php the_post_thumbnail('large', ['class' => 'catalog-single__img catalog-single__img--big']);?>
 
 					<div class="catalog-single__img catalog-single__img--small"
 						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>

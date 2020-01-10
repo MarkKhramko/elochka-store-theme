@@ -9,16 +9,16 @@
 	type="text"
 	name="price_min"
 	class="price-textbox"
-	placeholder="Мин цена"
+	placeholder="Мин"
 	tabindex="3"
 	value="<?php echo $priceMin; ?>"
 />
-<span> — <span/>
+<span> — </span>
 <input 
 	type="text"
 	name="price_max"
 	class="price-textbox"
-	placeholder="Макс цена"
+	placeholder="Макс"
 	tabindex="4"
 	value="<?php echo $priceMax; ?>"
 />

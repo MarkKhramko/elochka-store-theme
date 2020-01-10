@@ -8,6 +8,8 @@
 	<title><?php the_title(); ?></title>
 
 	<?php wp_head(); ?>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -18,7 +20,6 @@
 					<img src="<?php bloginfo('template_url');?>/static/images/images/logo.png">
 				</a>
 				<nav class="navigation">
-					<!-- Создаёт список ссылок (<ul>li><a>) из настроек меню (Внешний вид->Меню) -->
 					<?php 
 						wp_nav_menu(
 							[
@@ -27,6 +28,20 @@
 						);
 					?>
 				</nav>
+                <div class="header__mobile-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <nav class="navigation navigation--mobile">
+                    <?php
+                    wp_nav_menu(
+                        [
+                            'theme-location' => 'elochka-top-menu'
+                        ]
+                    );
+                    ?>
+                </nav>
 			</div>
 		</div>
 	</header>

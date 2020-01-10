@@ -22,32 +22,32 @@
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 			<div class="designers__item">
 				<div class="designers__img" style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
 				<h3 class="designers__name">Jamie Beckwith</h3>
-				<a href="#" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
+				<a href="/mirovye-dizajnery/jamie-beckwith/" class="button button--tr button--with-grey-arrow"><span>Описание</span></a>
 			</div>
 		</div>
 	</div>

@@ -4,4 +4,8 @@
   padding: 29px 30px;
   font-weight: bold;
   font-size: 18px;
+
+  @include media (sm) {
+    width: 100%;
+  }
 }

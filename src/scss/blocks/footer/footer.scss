@@ -7,6 +7,12 @@
     justify-content: space-between;
     padding: 80px 0;
     align-items: center;
+
+    @include media (xs) {
+      display: block;
+      text-align: center;
+      padding: 20px 0;
+    }
   }
 
   &__title {
@@ -29,5 +35,15 @@
     font-size: 18px;
     flex-basis: 35%;
     line-height: 36px;
+
+    @include media (xs) {
+      font-size: 11px;
+      margin-top: 20px;
+      line-height: 100%;
+    }
+  }
+
+  .socials {
+    margin-top: 50px;
   }
 }

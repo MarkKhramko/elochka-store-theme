@@ -1,10 +1,28 @@
 .dialog {
 
+  .container {
+    @include media (sm) {
+      padding: 0 !important;
+    }
+  }
+
   &__container {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 95px 170px;
+
+    @include media (sm) {
+      padding: 40px 80px;
+    }
+
+    @include media (xs) {
+      padding: 20px;
+    }
+
+    @include media (xxs) {
+      padding: 0;
+    }
   }
 
   &__content {
@@ -13,11 +31,24 @@
     backdrop-filter: blur(30px);
     padding: 55px 70px;
     align-items: center;
+
+    @include media (sm) {
+      display: block;
+    }
+
+    @include media (xs) {
+      padding: 20px;
+    }
+
   }
 
   &__text {
     color: black;
     margin-right: 70px;
+
+    @include media (sm) {
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -26,6 +57,16 @@
     line-height: 58px;
     margin-bottom: 40px;
     margin-top: 0;
+
+    @include media (sm) {
+      text-align: center;
+    }
+
+    @include media (xs) {
+      font-size: 22px;
+      line-height: 120%;
+      margin-bottom: 20px;
+    }
   }
 
   &__subtitle {
@@ -33,6 +74,16 @@
     font-size: 24px;
     line-height: 38px;
     margin-bottom: 0;
+
+    @include media (sm) {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    @include media (xs) {
+      font-size: 16px;
+      line-height: 120%;
+    }
   }
 
   &__inputs {
@@ -56,6 +107,10 @@
     margin-right: 0;
     display: block;
     width: 100%;
+
+    @include media (sm) {
+      max-width: 100%;
+    }
   }
 
 }

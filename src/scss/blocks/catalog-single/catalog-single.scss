@@ -15,10 +15,27 @@
   }
 
   &__photos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    flex-basis: 40%;
+   display: grid;
+    width: 40%;
+    grid-template-areas: 'a a a a'
+                          'b b b b';
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100%;
+
+    img {
+      max-height: 82px;
+      width: 25%;
+      grid-area: b;
+    }
+
+    img:first-child {
+      width: 100%;
+      grid-area: a;
+      max-height: 340px !important;
+    }
+
+
   }
 
   &__img {
@@ -31,6 +48,7 @@
       flex-basis: 100%;
       margin-bottom: 10px;
       height: 337px;
+      width: 100%;
     }
 
     &--small {
