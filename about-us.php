@@ -55,8 +55,8 @@
 				сомневаться, посетите наш салон и поставьте точку в вопросе напольных покрытий.
 			</p>
 		</div>
-		<?php get_template_part('./template-parts/home/dialog') ?>
 	</div>
+    <?php get_template_part('./template-parts/home/dialog') ?>
 </section>
 
 

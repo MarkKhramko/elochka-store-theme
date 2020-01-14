@@ -1,4 +1,9 @@
 .sidebar {
-  flex-basis: 25%;
+  flex-basis: 23%;
   width: 100%;
+
+  @include media (sm) {
+    flex-basis: 100%;
+    margin-bottom: 30px;
+  }
 }

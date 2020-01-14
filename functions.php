@@ -5,6 +5,9 @@
 
 		wp_register_style('elochka-style', get_template_directory_uri() . '/static/css/index.css', [], '0.0.1', 'all');
 		wp_enqueue_style('elochka-style');
+
+        wp_register_style('slick-style', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
+        wp_enqueue_style('slick-style');
 	}
 	add_action('wp_enqueue_scripts', 'elochka_load_stylesheets');
 
@@ -110,8 +113,6 @@
 		$vars[] = 'term-names';
 		$vars[] = 'orderby';
 		$vars[] = 'search';
-		$vars[] = 'price_min';
-		$vars[] = 'price_max';
 		return $vars;
 	}
 	add_filter('query_vars', 'elochka_register_query_vars');

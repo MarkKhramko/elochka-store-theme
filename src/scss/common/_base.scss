@@ -29,6 +29,10 @@ p {
   font-size: 18px;
   line-height: 28px;
   font-weight: 500;
+
+  @include media (lg) {
+    font-size: 16px;
+  }
 }
 
 .title {
@@ -57,7 +61,14 @@ p {
   outline: 0;
   border: 2px solid #DBDBDB;
   background: url("../../../images/icons/search.svg") 5% 50% no-repeat;
-  flex-basis: 25%;
+  flex-basis: 23%;
+  width: 100%;
+
+  @include media (sm) {
+    width: 100%;
+    margin-bottom: 20px;
+    background-position: 2%;
+  }
 }
 
 .search-button {
@@ -76,6 +87,10 @@ p {
   border: 2px solid #DBDBDB;
   max-width: 115px;
 
+  @include media (xs) {
+    max-width: 100px;
+  }
+
   &::placeholder {
     font-size: 15px;
   }
@@ -88,4 +103,13 @@ p {
   border: 2px solid #DBDBDB;
   font-weight: 500;
   font-size: 18px;
+
+  @include media (xs) {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  @include media (xxs) {
+    width: 100%;
+  }
 }

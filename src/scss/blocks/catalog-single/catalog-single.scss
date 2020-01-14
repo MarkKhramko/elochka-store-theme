@@ -2,40 +2,60 @@
 
   .text {
     margin-top: 0px;
+
+    @include media (sm) {
+      margin-top: 20px;
+    }
+
+    @include media (xs) {
+      font-size: 14px;
+    }
+
+    @include media (xxs) {
+      font-size: 11px;
+      line-height: 120%;
+    }
   }
 
   .button {
     max-width: 300px;
+
+    @include media (xxs) {
+      width: 100%;
+      max-width: 100%;
+    }
   }
 
   &__item {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @include media (sm) {
+      display: block;
+    }
   }
 
   &__photos {
-   display: grid;
+    display: grid;
     width: 40%;
-    grid-template-areas: 'a a a a'
-                          'b b b b';
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     height: 100%;
+    grid-column: 4;
+    grid-template-columns: repeat(4, 1fr);
 
-    img {
-      max-height: 82px;
-      width: 25%;
-      grid-area: b;
-    }
-
-    img:first-child {
+    @include media (sm) {
       width: 100%;
-      grid-area: a;
-      max-height: 340px !important;
     }
 
+    @include media (xs) {
+      grid-template-columns: repeat(2, 1fr)
+    }
 
+    @include media (xxs) {
+      grid-template-columns: repeat(1, 1fr)
+    }
   }
 
   &__img {
@@ -46,14 +66,27 @@
 
     &--big {
       flex-basis: 100%;
-      margin-bottom: 10px;
       height: 337px;
+      grid-column: 1 / -1;
       width: 100%;
+
+
+      @include media (sm) {
+        height: 580px;
+      }
+
+      @include media (xs) {
+        height: 300px;
+      }
     }
 
     &--small {
-      flex-basis: 24%;
+      width: 100%;
       height: 82px;
+
+      @include media (sm) {
+        height: 180px;
+      }
     }
   }
 
@@ -69,6 +102,7 @@
     font-weight: 500;
     font-size: 36px;
     color: #7B4729;
+    margin-bottom: 10px;
   }
 
   &__table {
@@ -78,18 +112,34 @@
 
   &__brand {
     width: 25%;
-
     font-weight: 600;
+
+    @include media (xs) {
+      width: 40%;
+    }
   }
 
   &__chars {
     width: 75%;
     font-weight: 600;
+
+    @include media (xs) {
+      width: 60%;
+    }
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 18px;
+
+    @include media (xs) {
+      font-size: 14px;
+    }
+
+    @include media (xxs) {
+      font-size: 11px;
+    }
 
     tr:nth-child(2n) {
       background-color: transparent;

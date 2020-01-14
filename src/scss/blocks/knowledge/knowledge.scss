@@ -4,6 +4,7 @@
   &__container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
 
   &__section {
@@ -12,6 +13,10 @@
 
   &__content {
     flex-basis: 73%;
+
+    @include media (sm) {
+      flex-basis: 100%;
+    }
   }
 
   &__head {
@@ -38,6 +43,32 @@
   &__item {
     flex-basis: 32%;
     margin-bottom: 65px;
+
+    @include media (lg) {
+      flex-basis: 49%;
+    }
+
+    @include media (xs) {
+      flex-basis: 100%;
+    }
+
+  }
+
+  &__filter {
+    margin-top: 58px;
+    cursor: pointer;
+  }
+
+  &__list-item {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    padding: 8.5px 5px;
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      background-color: rgba(128, 128, 128, 0.11);
+    }
   }
 
   &__item-img {
@@ -45,6 +76,10 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include media (xs) {
+      height: 250px;
+    }
   }
 
   &__item-name {

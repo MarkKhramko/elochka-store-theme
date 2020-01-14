@@ -1,9 +1,24 @@
 .dialog {
 
+
   .container {
-    @include media (sm) {
+    @include media (lg) {
       padding: 0 !important;
     }
+  }
+
+  .button {
+    max-width: 100%;
+
+
+    @include media (xxs) {
+      max-width: 100% !important;
+      min-width: 100% !important;
+    }
+  }
+
+  .input {
+    width: 100%;
   }
 
   &__container {
@@ -32,6 +47,10 @@
     padding: 55px 70px;
     align-items: center;
 
+    @include media (lg) {
+      padding: 30px;
+    }
+
     @include media (sm) {
       display: block;
     }
@@ -46,6 +65,10 @@
     color: black;
     margin-right: 70px;
 
+    @include media (lg) {
+      margin-right: 30px;
+    }
+
     @include media (sm) {
       margin-right: 0;
     }
@@ -57,6 +80,11 @@
     line-height: 58px;
     margin-bottom: 40px;
     margin-top: 0;
+
+    @include media (lg) {
+      font-size: 25px;
+      line-height: 35px;
+    }
 
     @include media (sm) {
       text-align: center;
@@ -75,6 +103,10 @@
     line-height: 38px;
     margin-bottom: 0;
 
+    @include media (lg) {
+      font-size: 20px;
+    }
+
     @include media (sm) {
       margin-bottom: 20px;
       text-align: center;
@@ -87,7 +119,11 @@
   }
 
   &__inputs {
+   min-width: 300px;
 
+    @include media (xs) {
+      min-width: unset;
+    }
   }
 
   .input {

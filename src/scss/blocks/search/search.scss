@@ -5,4 +5,8 @@
   outline: 0;
   border: 2px solid #DBDBDB;
   background: url("../../../images/icons/search.svg") 5% 50% no-repeat;
+
+  @include media (sm) {
+    background-position: 2%;
+  }
 }

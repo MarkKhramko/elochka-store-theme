@@ -21,7 +21,6 @@ if ($category instanceof WP_Term) {
                 <?php get_template_part('./template-parts/catalog/filter-search'); ?>
             <div class="catalog__inputs">
                 <?php get_template_part('./template-parts/catalog/filter-orderby'); ?>
-                <?php get_template_part('./template-parts/catalog/filter-price'); ?>
             </div>
     </form>
 </div>

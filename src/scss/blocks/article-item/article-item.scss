@@ -5,6 +5,14 @@
   border-bottom: 2px solid #DBDBDB;
   justify-content: space-between;
 
+  @include media (sm) {
+    padding: 40px 0;
+  }
+
+  @include media (xs) {
+    padding: 10px 0;
+  }
+
   &:last-child {
     border-bottom: none;
   }
@@ -15,6 +23,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @include media (sm) {
+      height: 220px;
+    }
+
+    @include media (xs) {
+      width: 220px;
+      height: 200px;
+    }
+
+    @include media (xxs) {
+      display: none ;
+    }
   }
 
   &__title {
@@ -22,5 +43,17 @@
     font-weight: normal;
     font-size: 24px;
     margin: 0;
+
+    @include media (sm) {
+      font-size: 18px;
+    }
+
+    @include media (xs) {
+      font-size: 16px;
+    }
+
+    @include media (xxs) {
+      flex-basis: 100%;
+    }
   }
 }

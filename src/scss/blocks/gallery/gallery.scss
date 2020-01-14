@@ -11,11 +11,16 @@
     grid-row-gap: 40px;
     justify-content: space-between;
     padding-bottom: 30px;
+
+    @include media (md) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__item {
     display: block;
     margin-bottom: 25px;
+    cursor: pointer;
   }
 
   &__item-img {

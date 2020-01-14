@@ -2,6 +2,10 @@
 
   .container {
     padding: 0 20px;
+
+    @include media (md) {
+      padding: 0 15px;
+    }
   }
 
   &__container {

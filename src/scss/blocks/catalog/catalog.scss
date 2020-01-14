@@ -1,14 +1,54 @@
 .catalog {
 
+  .sidebar {
+    width: 23%;
+
+    @include media (sm) {
+      width: 100%;
+    }
+  }
+
   &__container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 30px;
+
+    @include media (sm) {
+      display: block;
+    }
   }
 
   &__grid {
     width: 100%;
-    flex-basis: 73%;
+    margin-bottom: 20px ;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 20px;
+
+    @include media (md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media (sm) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include media (xs) {
+      grid-template-columns: 1fr;
+    }
+
+  }
+
+  &__grid-container {
+    width: 74%;
+
+    @include media (sm) {
+      width: 100%;
+    }
   }
 
   &__form {
@@ -17,23 +57,25 @@
     justify-content: space-between;
     font-weight: 500;
     font-size: 18px;
+
+    @include media (sm) {
+      display: block;
+    }
   }
 
   &__inputs {
-    flex-basis: 73%;
+    flex-basis: 74%;
 
     label {
       margin-left: 20px;
+
+      @include media (xs) {
+        margin: 0;
+      }
     }
 
   }
 
-  &__list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-  }
 
   &__item {
     flex-basis: 32%;
@@ -80,23 +122,8 @@
     margin-bottom: 30px;
   }
 
-  &__item-sale-cost {
-    font-weight: 500;
-    font-size: 24px;
-    text-decoration-line: line-through;
-    color: #B1B1B1;
-  }
-
-  &__item-cost {
-    display: inline-block;
-    font-weight: 500;
-    font-size: 36px;
-    color: #7B4729;
-  }
-
   .button {
     width: 100%;
-    margin-top: 40px;
 
     span {
       display: block;

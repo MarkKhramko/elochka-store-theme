@@ -6,6 +6,10 @@
     flex-wrap: wrap;
     padding: 0 20px;
     justify-content: space-between;
+
+    @include media (sm) {
+      padding: 0;
+    }
   }
 
   &__item {

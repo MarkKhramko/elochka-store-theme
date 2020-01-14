@@ -21,6 +21,9 @@
 		<div class="knowledge__container">
 			<div class="sidebar">
 				<input class="search">
+                <ul class="knowledge__filter">
+
+                </ul>
 			</div>
 			<div class="knowledge__content">
 				<div class="knowledge__head">Простой и понятный путеводитель о том, с чего начать знакомство с

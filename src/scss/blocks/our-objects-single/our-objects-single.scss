@@ -19,6 +19,18 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+
+    @include media (lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include media (md) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include media (xxs) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__photo {
@@ -27,5 +39,9 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @include media (xs) {
+      height: 250px;
+    }
   }
 }

@@ -2,4 +2,8 @@
   margin-top: 25px;
   color: #C1C1C1;
   font-size: 18px;
+
+  @include media (xs) {
+    font-size: 14px;
+  }
 }

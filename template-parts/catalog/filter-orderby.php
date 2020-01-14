@@ -7,9 +7,7 @@
 		'none' => 'Сортировать по:',
 		'date-asc' => "Дата: сначала новые",
 		'date-desc' => "Дата: сначала старые",
-		'price-asc' => "Цены: по возрастанию",
-		'price-desc' => "Цены: по убыванию"
-	);
+		);
 
 	$currentKey = isset($orderby) && $orderby != "" ? $orderby : "none";
 ?>

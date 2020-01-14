@@ -7,6 +7,7 @@
 
   .button {
     width: 100%;
+    max-width: 100%;
 
     span {
       width: 100%;
@@ -19,6 +20,19 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 30px;
     grid-row-gap: 30px;
+
+    @include media (lg) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @include media (md) {
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+    }
+
+    @include media (xs) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__img {
@@ -26,6 +40,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
+    @include media (lg) {
+      height: 300px;
+    }
+
+    @include media (sm) {
+      height: 250px;
+    }
   }
 
   &__name {

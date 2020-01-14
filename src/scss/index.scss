@@ -1,4 +1,5 @@
 @import 'common/index';
+@import "https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.css";
 
 @import "blocks/header/header";
 @import "blocks/navigation/navigation";
@@ -32,3 +33,5 @@
 @import "blocks/designers-single/designers-single";
 @import "blocks/socials/socials";
 @import "blocks/breadcrumbs/breadcrumbs";
+@import "blocks/modal/modal";
+@import "blocks/404/404";
