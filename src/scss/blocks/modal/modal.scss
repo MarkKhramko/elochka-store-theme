@@ -1,0 +1,76 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 30000;
+  display: flex;
+
+  .button {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &__box {
+    background-image: url("../../../../static/images/images/modal-bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+     background-size: cover;
+    height: 95%;
+    width: 600px;
+
+    padding: 63px 145px 98px;
+
+    @include media (sm) {
+      padding: 20px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  label {
+    color: #544B4B;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &__input {
+    margin-top: 7px;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    outline: 0;
+    border: 2px solid #8F8F8F;
+
+    &:focus {
+      border: 2px solid #8f5f1a;
+    }
+  }
+
+  textarea {
+    outline: 0;
+    min-height: 221px;
+    resize: none;
+    border: 2px solid #8F8F8F;
+  }
+
+  &__title {
+    font-weight: normal;
+    font-size: 36px;
+    margin-bottom: 26px;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-weight: normal;
+    font-size: 18px;
+    margin-bottom: 52px;
+    margin-top: 0;
+    text-align: center;
+  }
+}
