@@ -2971,6 +2971,12 @@ p {
   width: 100%;
 }
 
+.modal__button-send {
+  color: #fff;
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(-153.12%,#fff),color-stop(-153.1%,#7b4729),to(rgba(241,176,140,0))),#7b4729;
+  background: linear-gradient(180deg,#fff -153.12%,#7b4729 -153.1%,rgba(241,176,140,0) 100%),#7b4729;
+}
+
 .modal__box {
   background-image: url(../../static/images/images/modal-bg.png);
   background-position: center;
@@ -3006,6 +3012,10 @@ p {
 
 .modal__input:focus {
   border: 2px solid #8f5f1a;
+}
+
+.modal__input.error {
+  border-color: #a00;
 }
 
 .modal textarea {

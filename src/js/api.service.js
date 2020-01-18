@@ -1,13 +1,19 @@
-const axios = require('axios');
-
 const API_PREFIX = `${window.location.protocol}//${window.location.host}/wp-json/v1`;
 
-export default {
-	products : {
-		get: (args)=> axios.get(`${API_PREFIX}/products`)
-	},
+function _makePost(url, serialisedData, callback){
+	$.ajax({   
+			type: "POST",
+			data : serialisedData,
+			cache: false,
+			url: url,
+			success: function(data){
+				callback(data);
+			}
+	});
+}
 
-	attributes : {
-		get: (args)=> axios.get(`${API_PREFIX}/attributes`)
+export default {
+	orders: {
+		post: (data, callback)=> _makePost(`${API_PREFIX}/orders`, data, callback)
 	}
 };

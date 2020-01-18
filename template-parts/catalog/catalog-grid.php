@@ -36,22 +36,21 @@
 	$currentPage = $currentPage ? $currentPage : 1;
 
 	// Add price range
-	/*$metaQuery = array(
-		array(
-			'key' => '_price',
-			'value' => array($priceMin, $priceMax),
-			'compare' => 'BETWEEN',
-			'type' => 'NUMERIC'
-		)
-	);*/
-	
+	// $metaQuery = array(
+	// 	array(
+	// 		'key' => '_price',
+	// 		'value' => array($priceMin, $priceMax),
+	// 		'compare' => 'BETWEEN',
+	// 		'type' => 'NUMERIC'
+	// 	)
+	// );
+	// 'meta_query' => $metaQuery,
 
 	$params = array(
 		'posts_per_page' => $postsPerPage,
 		'offset' => ($currentPage - 1) * $postsPerPage,
 		'post_type' => 'product',
 
-		'meta_query' => $metaQuery,
 		'tax_query' => array()
 	);
 

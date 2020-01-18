@@ -81,22 +81,10 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
-
-/***/ "./js/api.service.js":
-/*!***************************!*\
-  !*** ./js/api.service.js ***!
-  \***************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nvar API_PREFIX = \"\".concat(window.location.protocol, \"//\").concat(window.location.host, \"/wp-json/v1\");\n\nfunction _makePost(url, serialisedData, callback) {\n  $.ajax({\n    type: \"POST\",\n    data: serialisedData,\n    cache: false,\n    url: url,\n    success: function success(data) {\n      callback(data);\n    }\n  });\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  orders: {\n    post: function post(data, callback) {\n      return _makePost(\"\".concat(API_PREFIX, \"/orders\"), data, callback);\n    }\n  }\n});\n\n//# sourceURL=webpack:///./js/api.service.js?");
-
-/***/ }),
 
 /***/ "./js/filter.js":
 /*!**********************!*\
@@ -109,38 +97,14 @@ eval("function buildQuery(formData) {\n  // Setup our serialized data\n  var ser
 
 /***/ }),
 
-/***/ "./js/index.js":
-/*!*********************!*\
-  !*** ./js/index.js ***!
-  \*********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _orders_modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./orders.modal */ \"./js/orders.modal.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./filter */ \"./js/filter.js\");\n/* harmony import */ var _filter__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_filter__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\nwindow.onload = function () {\n  console.log(\"JS Starts!\"); // Init orders modal\n\n  _orders_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"].initialize();\n  var currentPath = window.location.pathname; // If it's catalog, register filter\n\n  if (currentPath.includes(\"/katalog\")) {\n    _filter__WEBPACK_IMPORTED_MODULE_1___default.a.registerFormSubmit();\n    _filter__WEBPACK_IMPORTED_MODULE_1___default.a.registerOrderBySubmit();\n    _filter__WEBPACK_IMPORTED_MODULE_1___default.a.registerFilterSubmit();\n  } // If it's product page, add product message\n\n\n  if (currentPath.includes(\"/product/\")) {\n    console.log(\"Inside product\");\n    _orders_modal__WEBPACK_IMPORTED_MODULE_0__[\"default\"].addProductMessage();\n  } // Slick-slider\n\n\n  $('.slider-intro__slider').slick({\n    asNavFor: '.slider-intro__data',\n    slidesToShow: 1,\n    slidesToScroll: 1,\n    dots: false,\n    infinite: false,\n    nextArrow: $('.slider-intro__arrow--right'),\n    prevArrow: $('.slider-intro__arrow--left')\n  });\n  $('.slider-intro__data').slick({\n    asNavFor: '.slider-intro__slider',\n    slidesToShow: 1,\n    slidesToScroll: 1,\n    arrows: false,\n    infinite: false,\n    draggable: false,\n    dots: false,\n    fade: true\n  });\n  $('.slider-intro__pagination-bullet[data-id]').click(function (e) {\n    e.preventDefault();\n    var krutiverti = $(this).data('id');\n    $('.slider-intro__slider').slick('slickGoTo', krutiverti);\n  });\n  $('.slider-intro__slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {\n    $('.slider-intro__pagination-bullet').removeClass('slider-intro__pagination-bullet--is-active');\n    $(\".slider-intro__pagination-bullet[data-id='\".concat(nextSlide, \"']\")).addClass('slider-intro__pagination-bullet--is-active');\n  }); // Filter buttons click\n\n  $('.filters__attr').click(function () {\n    $(this).toggleClass('filters__attr--active');\n    $(this).next().toggleClass('filters__list--active');\n  });\n  $('.filters__item input[type=\"checkbox\"]').click(function () {\n    if ($(this).prop('checked') === true) {\n      $(this).parent().parent().addClass('filters__item--active');\n    } else {\n      $(this).parent().parent().removeClass('filters__item--active');\n    }\n  });\n  $('.filters__category').click(function () {\n    $(this).toggleClass('filters__category--active');\n    $(this).next().toggleClass('filters__subcategory--active');\n  }); // Burger-menu\n\n  $('.header__mobile-btn').click(function () {\n    $(this).toggleClass('header__mobile-btn--active');\n    $('.navigation--mobile').toggleClass('navigation--active');\n    $('body').toggleClass('unscroll');\n  }); // Search knowledge page\n\n  var listOfNames = $('.knowledge__item-name');\n  var filterArr = [];\n  listOfNames.each(function () {\n    filterArr.push(this.innerHTML);\n  });\n  var filteredArr = filterArr.map(function (name) {\n    console.log(name);\n    return '<li class=\"knowledge__list-item\">' + name + '</li>';\n  }).join('');\n  $('.knowledge__filter').append(filteredArr); // Input Filter\n\n  $('.knowledge__list-item').on('click', function () {\n    var input = $('.search');\n    input.val(this.innerHTML);\n  });\n\n  function filter() {\n    var inputVal = $('input .search').val();\n  }\n};\n\n//# sourceURL=webpack:///./js/index.js?");
-
-/***/ }),
-
-/***/ "./js/orders.modal.js":
+/***/ 1:
 /*!****************************!*\
-  !*** ./js/orders.modal.js ***!
+  !*** multi ./js/filter.js ***!
   \****************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _api_service__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api.service */ \"./js/api.service.js\");\n\n\nfunction _initModal() {\n  // Show modal on button click\n  $('.button--brown').click(function () {\n    $('.modal').toggleClass('hidden');\n  }); // Close modal on background click\n  // ...\n  // Send order info on button click\n\n  $('.modal__button-send').click(function () {\n    console.log(\"Send\"); // Validate inputs\n\n    var phoneValue = $('#modal-input-number').val();\n\n    if (phoneValue === '' || !phoneValue) {\n      $('#modal-input-number').addClass('error');\n      return false;\n    } else {\n      $('#modal-input-number').removeClass('error');\n    }\n\n    var data = $('#modal-form').serialize();\n    _api_service__WEBPACK_IMPORTED_MODULE_0__[\"default\"].orders.post(data, function (res) {\n      if (res.error !== null) {\n        console.error(\"Modal Order send error: \", error.description);\n        return;\n      } // Order success\n\n\n      $('.modal').toggleClass('hidden');\n    });\n  }); // Mask number input\n\n  $('.number').mask('+7 (000)000-00-00');\n}\n\nfunction _addProductMessage() {\n  // Get product Id\n  var productFullId = $('.product.type-product').attr('id');\n  var productId = productFullId.split('product-')[1]; // Set product Id to hidden input\n\n  $('#product-id').val(productId); // Get product title\n\n  var title = $('.title').text().trim(); // Set prodcut title to message input\n\n  $('#modal-input-message').val(\"\\u0417\\u0434\\u0440\\u0430\\u0432\\u0441\\u0442\\u0432\\u0443\\u0439\\u0442\\u0435!\\n\\n\\u041C\\u0435\\u043D\\u044F \\u0437\\u0430\\u0438\\u043D\\u0442\\u0435\\u0440\\u0435\\u0441\\u043E\\u0432\\u0430\\u043B \\\"\".concat(title, \"\\\".\"));\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  initialize: _initModal,\n  addProductMessage: _addProductMessage\n});\n\n//# sourceURL=webpack:///./js/orders.modal.js?");
-
-/***/ }),
-
-/***/ 2:
-/*!***************************!*\
-  !*** multi ./js/index.js ***!
-  \***************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/elochka42/wp-content/themes/elochka-store/src/js/index.js */\"./js/index.js\");\n\n\n//# sourceURL=webpack:///multi_./js/index.js?");
+eval("module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/elochka42/wp-content/themes/elochka-store/src/js/filter.js */\"./js/filter.js\");\n\n\n//# sourceURL=webpack:///multi_./js/filter.js?");
 
 /***/ })
 

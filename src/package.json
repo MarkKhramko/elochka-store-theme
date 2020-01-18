@@ -8,9 +8,7 @@
   },
   "author": "Klim Milk",
   "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "css-loader": "^2.0.1",
     "jquery": "^3.3.1",
