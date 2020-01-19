@@ -66,6 +66,22 @@
   &__inputs {
     flex-basis: 74%;
 
+    &-search {
+      padding: 11.5px 15px 11.5px 60px;
+      box-shadow: none;
+      outline: 0;
+      border: 2px solid #DBDBDB;
+      background: url("../../../images/icons/search.svg") 5% 50% no-repeat;
+      flex-basis: 23%;
+      width: 100%;
+
+      @include media (sm) {
+        width: 100%;
+        margin-bottom: 20px;
+        background-position: 2%;
+      }
+    }
+
     label {
       margin-left: 20px;
 
@@ -120,6 +136,34 @@
     font-weight: normal;
     font-size: 18px;
     margin-bottom: 30px;
+  }
+
+  &__search-button {
+    cursor: pointer;
+    border: 2px solid #dbdbdb;
+    padding: 11.5px;
+    margin: 0 11.5px;
+  }
+
+  &__select-orderby {
+    padding: 9px 15px 10px 10px;
+    box-shadow: none;
+    outline: 0;
+    border: 2px solid #DBDBDB;
+    font-weight: 500;
+    font-size: 18px;
+    height: 47px;
+    background: transparent;
+    border-radius: 0;
+
+    @include media (xs) {
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    @include media (xxs) {
+      width: 100%;
+    }
   }
 
   .button {

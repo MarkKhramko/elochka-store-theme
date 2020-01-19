@@ -1,7 +1,15 @@
-<!-- Query parameters -->
 <?php
 	// Config
-	$postsPerPage = 1;
+	$postsPerPage = 9;
+
+	// Function for the search query
+	function title_filter( $where, &$wp_query ){
+		global $wpdb;
+		if ( $search_term = $wp_query->get( 'search_prod_title' ) ) {
+				$where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
+		}
+		return $where;
+	}
 
 	// Get current terms & ids
 	$queryTerms = get_query_var('term-names', '');
@@ -21,30 +29,34 @@
 	$orderBy = get_query_var('orderby', null);
 	$searchQuery = get_query_var('search');
 
-	/*// Get minimal available price
-	$priceMin = get_query_var('price_min', 0);
-	if ($priceMin === '')
-		$priceMin = 0;
+	/* REMOVED BY CLIENT INTENTION
+		// Get minimal available price
+		$priceMin = get_query_var('price_min', 0);
+		if ($priceMin === '')
+			$priceMin = 0;
 
-	// Get maximal available price
-	$priceMax = get_query_var('price_max', 100000000000);
-	if ($priceMax === '')
-		$priceMax = 100000000000;*/
+		// Get maximal available price
+		$priceMax = get_query_var('price_max', 100000000000);
+		if ($priceMax === '')
+			$priceMax = 100000000000;
+	*/
 
 	// Get page
 	$currentPage = get_query_var('page');
 	$currentPage = $currentPage ? $currentPage : 1;
 
-	// Add price range
-	// $metaQuery = array(
-	// 	array(
-	// 		'key' => '_price',
-	// 		'value' => array($priceMin, $priceMax),
-	// 		'compare' => 'BETWEEN',
-	// 		'type' => 'NUMERIC'
-	// 	)
-	// );
-	// 'meta_query' => $metaQuery,
+	/* REMOVED BY CLIENT INTENTION
+		// Add price range
+		$metaQuery = array(
+			array(
+				'key' => '_price',
+				'value' => array($priceMin, $priceMax),
+				'compare' => 'BETWEEN',
+				'type' => 'NUMERIC'
+			)
+		);
+		'meta_query' => $metaQuery,
+	*/
 
 	$params = array(
 		'posts_per_page' => $postsPerPage,
@@ -53,6 +65,11 @@
 
 		'tax_query' => array()
 	);
+
+	// If search term defined, add to query
+	if ($search != ''){
+		$params['search_prod_title'] = $search;
+	}
 
 	// If terms & attributes defined, add to query
 	if (count($selectedTerms) > 0 && count($currentAttributes) > 0) {
@@ -102,7 +119,9 @@
 		$params = array_merge($params, $queryOrderBy);
 	}
 
+	// add_filter( 'posts_where', 'title_filter', 10, 2 );
 	$wc_query = new WP_Query($params);
+	// remove_filter( 'posts_where', 'title_filter', 10, 2 );
 ?>
 <div class="catalog__grid-container">
 <div class="catalog__grid">
@@ -112,10 +131,14 @@
 				<?php 
 					// Extract product
 					$product = new WC_Product(get_the_ID());
-					/*$price = $product->get_price();*/
+					/* REMOVED BY CLIENT INTENTION
+						$price = $product->get_price();
+					*/
 
 					$onSale = $product->is_on_sale();
-					/*$regularPrice = $onSale ? $product->get_regular_price() : null;*/
+					/* REMOVED BY CLIENT INTENTION
+						$regularPrice = $onSale ? $product->get_regular_price() : null;
+					*/
 				?>
 				<div class="catalog__item">
 					<a href="<?php the_permalink(); ?>">
@@ -144,5 +167,5 @@
 	</div>
 
 </div>
-    <?php _get_template_part('./template-parts/catalog/catalog-pagination', null, ['wc_query' => $wc_query]) ?>
+	<?php _get_template_part('./template-parts/catalog/catalog-pagination', null, ['wc_query' => $wc_query]) ?>
 </div>
