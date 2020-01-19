@@ -93,9 +93,8 @@
 		</div>
 	</section>
 </div>
-
 <?php //do_action( 'woocommerce_after_single_product' ); ?>
 <?php
-	get_template_part('./template-parts/popular');
+	get_template_part('./template-parts/populars');
 	get_footer();
 ?>

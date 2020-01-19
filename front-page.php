@@ -87,7 +87,7 @@
 					<li>Мы поможем вам подобрать паркет для вашего интерьера</li>
 				</ul>
 				<a href="/o-nas" class="button button--with-grey-arrow">
-					<span>Читать дальше</span>
+					<span>Читать далее</span>
 				</a>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 <?php get_template_part('./template-parts/home/advantages') ?>
 <?php get_template_part('./template-parts/home/bid') ?>
 <?php get_template_part('./template-parts/home/sales') ?>
-<?php get_template_part('./template-parts/home/popular') ?>
+<?php get_template_part('./template-parts/popular') ?>
 <?php get_template_part('./template-parts/home/dialog') ?>
 
 <?php get_footer(); ?>

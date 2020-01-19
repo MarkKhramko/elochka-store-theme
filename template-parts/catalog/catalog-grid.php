@@ -67,8 +67,8 @@
 	);
 
 	// If search term defined, add to query
-	if ($search != ''){
-		$params['search_prod_title'] = $search;
+	if ($searchQuery != ''){
+		$params['search_prod_title'] = $searchQuery;
 	}
 
 	// If terms & attributes defined, add to query
