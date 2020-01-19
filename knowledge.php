@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
- * Template Name: Knowledge
+ * Template Name: Энциклопедия (Knowledge)
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package neutral

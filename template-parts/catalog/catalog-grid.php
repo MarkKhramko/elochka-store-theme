@@ -157,8 +157,7 @@
 						<span>Описание</span>
 					</a>
 				</div>
-			<?php endwhile; ?>
-			<?php wp_reset_postdata(); ?>
+			<?php endwhile; wp_reset_postdata(); ?>
 		<?php else: ?>
 			<p>
 				<?php _e('По вашему запросу товаров не найдено.'); ?>

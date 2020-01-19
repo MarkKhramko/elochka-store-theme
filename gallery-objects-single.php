@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
- * Template Name: Каталог (Catalog)
+ * Template Name: Наши объекты в галереи (Конечная страница) (Gallery - Our Objects Single)
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package neutral
@@ -15,13 +15,16 @@
 	get_header();
 ?>
 
-<section class="catalog">
+<section class="our-objects-single">
 	<div class="container">
-		<?php get_template_part('./template-parts/catalog/catalog-filter') ?>
+		<h2 class="title">
+			<?php the_title(); ?>
+		</h2>
+		<div class="our-objects-single__text">
+			<?php the_content(); ?>
+		</div>
 	</div>
 </section>
-<?php get_template_part('./template-parts/dialog') ?>
-
 
 <?php
 	get_footer();

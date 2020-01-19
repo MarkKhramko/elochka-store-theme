@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
- * Template Name: About-us
+ * Template Name: О нас (About-us)
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package neutral

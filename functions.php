@@ -6,14 +6,18 @@
 		wp_register_style('elochka-style', get_template_directory_uri() . '/static/css/index.css', [], '0.0.1', 'all');
 		wp_enqueue_style('elochka-style');
 
-        wp_register_style('slick-style', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
-        wp_enqueue_style('slick-style');
+		wp_register_style('slick-style', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
+		wp_enqueue_style('slick-style');
 	}
 	add_action('wp_enqueue_scripts', 'elochka_load_stylesheets');
 
 	function elochka_load_scripts(){
 		wp_register_script('elochka-js', get_template_directory_uri() . '/static/js/index.js', null, 1, true);
 		wp_enqueue_script('elochka-js');
+
+		wp_deregister_script('jquery');
+		// Do not update this jQuery version! 1.9.0 Works with all plugins!!
+		wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array(), null, true);
 	}
 
 	add_action('wp_enqueue_scripts', 'elochka_load_scripts');
