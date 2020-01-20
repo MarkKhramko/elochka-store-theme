@@ -25,9 +25,18 @@
 		$currentAttributes = explode(',', $queryAttributes);
 	}
 
+	// Get currently selected category
 	$currentCategory = get_query_var('category');
+
+	// Get selected order
 	$orderBy = get_query_var('orderby', null);
+
+	// Get seacrh term
 	$searchQuery = get_query_var('search');
+
+	// Get selected page number
+	$currentPage = get_query_var('page');
+	$currentPage = $currentPage ? $currentPage : 1;
 
 	/* REMOVED BY CLIENT INTENTION
 		// Get minimal available price
@@ -40,10 +49,6 @@
 		if ($priceMax === '')
 			$priceMax = 100000000000;
 	*/
-
-	// Get page
-	$currentPage = get_query_var('page');
-	$currentPage = $currentPage ? $currentPage : 1;
 
 	/* REMOVED BY CLIENT INTENTION
 		// Add price range
@@ -68,7 +73,7 @@
 
 	// If search term defined, add to query
 	if ($searchQuery != ''){
-		$params['search_prod_title'] = $searchQuery;
+		$params['s'] = $searchQuery;
 	}
 
 	// If terms & attributes defined, add to query
