@@ -6,7 +6,7 @@
  * Please note that this is the WordPress construct of pages
  * and that other 'pages' on your WordPress site may use a
  * different template.
- * Template Name: Наши объекты в галереи (Конечная страница) (Gallery - Our Objects Single)
+ * Template Name: Мировые дизайнеры в галереи (Конечная страница) (Gallery - Designers Single)
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package neutral
@@ -15,13 +15,16 @@
 	get_header();
 ?>
 
-<section class="our-objects-single">
+<section class="designers-single">
 	<div class="container">
 		<h2 class="title">
 			<?php the_title(); ?>
 		</h2>
-		<div class="our-objects-single__text">
-			<?php the_content(); ?>
+		<div class="designers-single__head">
+			<div class="designers-single__img" style="background-image: url('<?php echo get_the_post_thumbnail_url();?>')"></div>
+			<div class="designers-single__text">
+				<?php the_content(); ?>
+			</div>
 		</div>
 	</div>
 </section>

@@ -97,7 +97,7 @@
 <?php get_template_part('./template-parts/home/bid') ?>
 <?php get_template_part('./template-parts/home/sales') ?>
 <?php get_template_part('./template-parts/popular') ?>
-<?php get_template_part('./template-parts/home/dialog') ?>
+<?php get_template_part('./template-parts/consultation') ?>
 
 <?php get_footer(); ?>
 

@@ -32,7 +32,7 @@
 		<div class="gallery__grid">
 			<?php if ($parent->have_posts() ) : while ( $parent->have_posts() ) : $parent->the_post(); ?>
 				<a href="<?php the_permalink(); ?>" class="gallery__item">
-					<?php the_post_thumbnail('medium', ['class' => 'gallery__item-img']);?>
+					<div class="gallery__item-img" style="background-image: url('<?php echo get_the_post_thumbnail_url();?>')"></div>
 					<div class="gallery__item-name">
 						<?php the_title(); ?>
 					</div>
@@ -62,5 +62,6 @@
 </section>
 
 <?php
+	get_template_part('./template-parts/consultation');
 	get_footer();
 ?>

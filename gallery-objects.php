@@ -34,7 +34,7 @@
 
 			<?php if ($parent->have_posts() ) : while ( $parent->have_posts() ) : $parent->the_post(); ?>
 				<div class="our-objects__item">
-					<?php the_post_thumbnail('medium', ['class' => 'our-objects__img']);?>
+					<div class="our-objects__img" style="background-image: url('<?php echo get_the_post_thumbnail_url();?>')"></div>
 					<div class="our-objects__text">
 						<?php the_title(); ?>
 					</div>
@@ -54,6 +54,7 @@
 </section>
 
 <?php
+	get_template_part('./template-parts/consultation');
 	get_footer();
 ?>
 
