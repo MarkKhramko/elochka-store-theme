@@ -47,7 +47,7 @@
 				</div>
 				<div class="catalog-single__info">
 					<p class="text">
-						Размеры: <?php //echo size ?> Соответствует ГОСТ 862.1 — 85. Влажность — 8-10%.
+						Размеры: <?php echo $product->get_attribute('razmer'); ?> Соответствует ГОСТ 862.1 — 85. Влажность — 8-10%.
 						<br><br>
 						<?php echo $product->get_description(); ?>
 						<br><br>
