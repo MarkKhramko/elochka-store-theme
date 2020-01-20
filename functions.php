@@ -77,6 +77,9 @@
 					$category = get_term_by('name', $crumb[0], 'product_cat');
 					$newCrumb[1] = '/katalog/?category=' . $category->slug;
 				}
+				else if (preg_match("/category/i", $crumb[1])){
+					$newCrumb[1] = "/encyclopedia/";
+				}
 				else{
 					$newCrumb[1] = $crumb[1];
 				}

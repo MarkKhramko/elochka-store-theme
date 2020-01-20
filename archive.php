@@ -10,6 +10,10 @@
 	get_header();
 ?>
 
+	<p>
+		Hi! I'm archive
+	</p>
+
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
