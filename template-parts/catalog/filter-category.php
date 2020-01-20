@@ -30,15 +30,17 @@
 			$slug = $cat->slug;
 ?>
 			<div class="filters__container">
-				<button 
-					type="submit" 
-					data-name="category" 
-					data-slug="<?php echo $slug; ?>" 
-					data-selected="<?php echo $currentCategory === $slug ? 'true' : 'false' ?>"
-                    class="filters__category"
-				>
-					<?php echo $cat->name; ?>
-				</button>
+				<div class="filters__category">
+					<button 
+						type="submit" 
+						data-name="category" 
+						data-slug="<?php echo $slug; ?>" 
+						data-selected="<?php echo $currentCategory === $slug ? 'true' : 'false' ?>"
+						class="filters__category-button"
+					>
+						<?php echo $cat->name; ?>
+					</button>
+				</div>
 				<ul class="filters__subcategory">
 					<?php
 						$args2 = array(
