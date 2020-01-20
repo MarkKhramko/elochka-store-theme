@@ -49,11 +49,9 @@
 					<p class="text">
 						Размеры: <?php //echo size ?> Соответствует ГОСТ 862.1 — 85. Влажность — 8-10%.
 						<br><br>
-						<?php
-							echo $product->get_description();
-						?>
+						<?php echo $product->get_description(); ?>
 						<br><br>
-						Артикул: <?php //ehco articul ?>
+						Артикул: <?php echo $product->get_sku(); ?>
 					</p>
 					<div class="catalog-single__cost">
 						<?php echo wc_price($price); ?>
@@ -96,6 +94,6 @@
 </div>
 <?php //do_action( 'woocommerce_after_single_product' ); ?>
 <?php
-	get_template_part('./template-parts/populars');
+	get_template_part('./template-parts/popular');
 	get_footer();
 ?>
