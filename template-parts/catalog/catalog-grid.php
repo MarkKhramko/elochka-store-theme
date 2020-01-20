@@ -2,15 +2,6 @@
 	// Config
 	$postsPerPage = 9;
 
-	// Function for the search query
-	function title_filter( $where, &$wp_query ){
-		global $wpdb;
-		if ( $search_term = $wp_query->get( 'search_prod_title' ) ) {
-				$where .= ' AND ' . $wpdb->posts . '.post_title LIKE \'%' . esc_sql( like_escape( $search_term ) ) . '%\'';
-		}
-		return $where;
-	}
-
 	// Get current terms & ids
 	$queryTerms = get_query_var('term-names', '');
 	$queryAttributes = get_query_var('attributes', '');
@@ -124,9 +115,7 @@
 		$params = array_merge($params, $queryOrderBy);
 	}
 
-	// add_filter( 'posts_where', 'title_filter', 10, 2 );
 	$wc_query = new WP_Query($params);
-	// remove_filter( 'posts_where', 'title_filter', 10, 2 );
 ?>
 <div class="catalog__grid-container">
 <div class="catalog__grid">
