@@ -31,7 +31,7 @@
 					?>
 					<div class="popular__item">
 						<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail('medium', ['class' => 'popular__img']);?>
+							<div class="popular__img" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
 						</a>
 						<a href="<?php the_permalink(); ?>">
 							<div class="popular__name">
@@ -46,7 +46,6 @@
 							<span>Описание</span>
 						</a>
 					</div>
-				</div>
 				<?php endwhile; ?>
 				<?php wp_reset_postdata(); ?>
 			<?php else: ?>
