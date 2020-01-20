@@ -1,35 +1,4 @@
-function buildQuery(formData){
-	// Setup our serialized data
-	const serialized = [];
-
-	for(let i=0; i < formData.length; i++){
-		const fieldData = formData[i];
-		serialized.push(encodeURIComponent(fieldData.name) + "=" + encodeURIComponent(fieldData.value));
-	}
-
-	return "?" + (serialized.join('&'));
-}
-
-function serializeForm(form){
-	// Setup our serialized data
-	const serialized = [];
-
-	// Loop through each field in the form
-	for (let i = 0; i < form.elements.length; i++) {
-		const field = form.elements[i];
-
-		// Don't serialize fields without a name, submits, buttons, file and reset inputs, and disabled fields
-		if (!field.name || field.disabled || field.type === 'file' || field.type === 'reset' || field.type === 'submit' || field.type === 'button') 
-			continue;
-
-		serialized.push({
-			name: field.name,
-			value: field.value
-		});
-	}
-
-	return serialized;
-}
+import QueryService from '../query.service';
 
 function serializeFilterData(){
 	// Setup our serialized data
@@ -84,16 +53,16 @@ function serializeFilterData(){
 }
 
 function _handleFilterFormSubmit(){
-	const form = document.getElementById("elochka-main-filter");
+	const form = $("#elochka-main-filter");
 	// Get information from form
-	const formData = serializeForm(form);
+	const formData = QueryService.serializeForm(form);
 	// Get information from filter
 	const filterData = serializeFilterData();
 	// Merge data
 	const fullQuery = formData.concat(filterData);
 
 	// Submit query
-	const url = buildQuery(fullQuery);
+	const url = QueryService.buildQuery(fullQuery);
 	window.location.href = `/katalog/${url}`;
 	return false;
 }
@@ -127,17 +96,17 @@ function _handleAttributesChange(event){
 	_handleFilterFormSubmit();
 }
 
-function registerFormSubmit(){
+function _registerFormSubmit(){
 	const filterForm = document.getElementById("elochka-main-filter");
 	filterForm.onsubmit = _handleFilterFormSubmit;
 }
 
-function registerOrderBySubmit(){
+function _registerOrderBySubmit(){
 	const orderByInput = document.getElementById("filter-orderby");
 	orderByInput.onchange = _handleOrderByChange;
 }
 
-function registerFilterSubmit(){
+function _registerFilterSubmit(){
 	const categoryButtons = document.querySelectorAll('[data-name="category"]');
 	categoryButtons.forEach((button)=>{
 		button.onclick = _handleCategoryButtonClick;
@@ -149,8 +118,31 @@ function registerFilterSubmit(){
 	});
 }
 
-module.exports = {
-	registerFormSubmit,
-	registerOrderBySubmit,
-	registerFilterSubmit
+function _initialize() {
+	// CatalogFilter buttons click
+	$('.filters__attr').click(function () {
+		$(this).toggleClass('filters__attr--active');
+		$(this).next().toggleClass('filters__list--active');
+	});
+
+	$('.filters__item input[type="checkbox"]').click(function () {
+		if ($(this).prop('checked') === true) {
+			$(this).parent().parent().addClass('filters__item--active')
+		} else {
+			$(this).parent().parent().removeClass('filters__item--active')
+		}
+	});
+
+	$('.filters__category').click(function () {
+		$(this).toggleClass('filters__category--active')
+		$(this).next().toggleClass('filters__subcategory--active');
+	});
+
+	_registerFormSubmit();
+	_registerOrderBySubmit();
+	_registerFilterSubmit();
+}
+
+export default {
+	initialize: _initialize
 };
