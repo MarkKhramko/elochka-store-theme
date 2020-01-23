@@ -19,12 +19,23 @@
 
 	// Get query vars
 	$searchTerm = get_query_var('search', '');
+	// Get category id
+	$categoryId = get_query_var('category', null);
 
 	// If search term defined, find posts
 	if ($searchTerm != ''){
 		$params = array(
 			's' => $searchTerm,
 			'post_type' => 'post'
+		);
+
+		$wc_query = new WP_Query($params);
+	}
+	// If category defined, find posts
+	else if ($categoryId != null){
+		$params = array(
+			'post_type' => 'post',
+			'cat' => $categoryId
 		);
 
 		$wc_query = new WP_Query($params);
@@ -57,7 +68,12 @@
 		
 		<div class="knowledge__container">
 
-			<?php _get_template_part('./template-parts/encyclopedia/sidebar', null, ['search_term' => $searchTerm, 'categories' => $parentCategories]) ?>
+			<?php _get_template_part('./template-parts/encyclopedia/sidebar', null, [
+					'search_term' => $searchTerm, 
+					'categories' => $parentCategories,
+					'category' => $categoryId
+				]);
+			?>
 
 			<div class="knowledge__content">
 				<div class="knowledge__head">
@@ -65,7 +81,7 @@
 				</div>
 				<div class="knowledge__section">
 
-					<?php if ($searchTerm == "") : ?>
+					<?php if ($searchTerm == "" && $categoryId == null) : ?>
 
 						<?php if (count($parentCategories) > 0) : foreach ($parentCategories as $key => $category) : ?>
 							<h3 class="knowledge__title">
@@ -99,8 +115,8 @@
 
 
 					<?php 
-						// If search term definded:
-						else: 
+						// If search term or category definded:
+						elseif($searchTerm != "" || $categoryId != null) : 
 					?>
 						<?php if ($wc_query->have_posts()) : ?>
 							<div class="knowledge__grid">

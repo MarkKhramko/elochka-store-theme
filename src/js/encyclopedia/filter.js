@@ -1,10 +1,12 @@
 function _initialize() {
 	// Put value of category in search input on click
 	$('.knowledge__list-item').on('click', function () {
-		const newSearchTerm = $(this).text().trim();
+		const categoryId = $(this).data('category-id');
 
 		// Put value inside search field
-		$('#search').val(newSearchTerm);
+		$('#category').val(categoryId);
+		// Empty search field
+		$('#search').val('');
 
 		// Get form
 		const form = $("#elochka-encyclopedia-filter");

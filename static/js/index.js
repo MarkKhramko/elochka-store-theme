@@ -118,7 +118,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _que
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nfunction _initialize() {\n  // Put value of category in search input on click\n  $('.knowledge__list-item').on('click', function () {\n    var newSearchTerm = $(this).text().trim(); // Put value inside search field\n\n    $('#search').val(newSearchTerm); // Get form\n\n    var form = $(\"#elochka-encyclopedia-filter\"); // Submit \n\n    form.submit();\n  });\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  initialize: _initialize\n});\n\n//# sourceURL=webpack:///./js/encyclopedia/filter.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _initialize() {\n  // Put value of category in search input on click\n  $('.knowledge__list-item').on('click', function () {\n    var categoryId = $(this).data('category-id'); // Put value inside search field\n\n    $('#category').val(categoryId); // Empty search field\n\n    $('#search').val(''); // Get form\n\n    var form = $(\"#elochka-encyclopedia-filter\"); // Submit \n\n    form.submit();\n  });\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  initialize: _initialize\n});\n\n//# sourceURL=webpack:///./js/encyclopedia/filter.js?");
 
 /***/ }),
 
