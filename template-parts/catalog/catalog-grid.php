@@ -136,7 +136,8 @@
 				?>
 				<div class="catalog__item">
 					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail('medium', ['class' => 'catalog__item-img']);?>
+						<div class="catalog__item-img"
+						 style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
 					</a>
 					<a href="<?php the_permalink(); ?>">
 						<div class="catalog__item-title">
