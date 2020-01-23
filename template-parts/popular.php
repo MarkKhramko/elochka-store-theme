@@ -5,15 +5,16 @@
 	$params = array(
 		'posts_per_page' => $postsPerPage,
 		'post_type' => 'product',
-
-		'tax_query' => array()
+		'orderby' => 'rand'
 	);
 
 	$wc_query = new WP_Query($params);
 ?>
 <section class="popular">
 	<div class="container">
-		<h2 class="title">Популярные Товары</h2>
+		<h2 class="title">
+			Популярные Товары
+		</h2>
 		<div class="popular__grid">
 			<?php if ($wc_query->have_posts()) : ?>
 				<?php while ($wc_query->have_posts()) : $wc_query->the_post(); ?>
