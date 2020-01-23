@@ -6,18 +6,27 @@
 		wp_register_style('elochka-style', get_template_directory_uri() . '/static/css/index.css', [], '0.0.1', 'all');
 		wp_enqueue_style('elochka-style');
 
-		wp_register_style('slick-style', get_template_directory_uri() . 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
+		wp_register_style('slick-style', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
 		wp_enqueue_style('slick-style');
 	}
 	add_action('wp_enqueue_scripts', 'elochka_load_stylesheets');
 
 	function elochka_load_scripts(){
-		wp_register_script('elochka-js', get_template_directory_uri() . '/static/js/index.js', null, 1, true);
-		wp_enqueue_script('elochka-js');
-
+		// Unregister old jQuery
 		wp_deregister_script('jquery');
 		// Do not update this jQuery version! 1.9.0 Works with all plugins!!
-		wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js', array(), null, true);
+		wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js', array(), null, true);
+
+		// Register modules
+		wp_register_script('jquery-slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array(), null, true);
+		wp_register_script('jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', array(), null, true);
+		// Enqueue
+		wp_enqueue_script('jquery-slick');
+		wp_enqueue_script('jquery-mask');
+
+		// Register theme scripts
+		wp_register_script('elochka-js', get_template_directory_uri() . '/static/js/index.js', null, 1, true);
+		wp_enqueue_script('elochka-js');
 	}
 
 	add_action('wp_enqueue_scripts', 'elochka_load_scripts');

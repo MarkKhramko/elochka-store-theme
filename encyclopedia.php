@@ -14,6 +14,10 @@
 
 	get_header();
 
+	// Config
+	$numberOfPostsInCategory = 4;
+
+	// Get query vars
 	$searchTerm = get_query_var('search', '');
 
 	// If search term defined, find posts
@@ -34,13 +38,15 @@
 
 	$parentCategories = get_categories($args);
 
-	// Create array of child categories
-	$childCategories = array();
-	// Populate child categories array
-	foreach ($parentCategories as $key => $parentCategory) {
-		$c = get_categories(array('parent' => $parentCategory->cat_ID));
-		$childCategories = array_merge($childCategories, $c);
-	}
+	/* UNREQUIRED
+		// Create array of child categories
+		$childCategories = array();
+		// Populate child categories array
+		foreach ($parentCategories as $key => $parentCategory) {
+			$c = get_categories(array('parent' => $parentCategory->cat_ID));
+			$childCategories = array_merge($childCategories, $c);
+		}
+	*/
 ?>
 
 <section class="knowledge">
@@ -51,7 +57,7 @@
 		
 		<div class="knowledge__container">
 
-			<?php _get_template_part('./template-parts/encyclopedia/sidebar', null, ['search_term' => $searchTerm, 'child_categories' => $childCategories]) ?>
+			<?php _get_template_part('./template-parts/encyclopedia/sidebar', null, ['search_term' => $searchTerm, 'categories' => $parentCategories]) ?>
 
 			<div class="knowledge__content">
 				<div class="knowledge__head">
@@ -71,9 +77,11 @@
 
 							<div class="knowledge__grid">
 								<?php
+									// Get posts inside current category
 									$args = array(
 										'category' => $category->term_id,
-										'post_type' => 'post'
+										'post_type' => 'post',
+										'posts_per_page' => $numberOfPostsInCategory
 									);
 									$posts = get_posts( $args );
 
@@ -89,12 +97,11 @@
 							</div>
 						<?php endforeach; endif; ?>
 
-						<div class="knowledge__section">
-							<?php get_template_part('./template-parts/encyclopedia/article-item') ?>
-							<?php get_template_part('./template-parts/encyclopedia/article-item') ?>
-							<?php get_template_part('./template-parts/encyclopedia/article-item') ?>
-						</div>
-					<?php else: ?>
+
+					<?php 
+						// If search term definded:
+						else: 
+					?>
 						<?php if ($wc_query->have_posts()) : ?>
 							<div class="knowledge__grid">
 								<?php while ($wc_query->have_posts()) : $wc_query->the_post(); ?>
@@ -105,7 +112,7 @@
 											<?php the_title(); ?>
 										</div>
 									</a>
-								<?php endwhile; ?>
+								<?php endwhile; wp_reset_postdata(); ?>
 							</div>
 						<?php else: ?>
 							<p>

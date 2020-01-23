@@ -1,6 +1,6 @@
 <?php
 	$searchTerm = $args['search_term'];
-	$childCategories = $args['child_categories'];
+	$categories = $args['categories'];
 ?>
 
 <div class="sidebar">
@@ -13,9 +13,9 @@
 		>
 	</form>
 	<ul class="knowledge__filter">
-		<?php if (count($childCategories) > 0) : foreach ($childCategories as $key => $category) : ?>
+		<?php if (count($categories) > 0) : foreach ($categories as $key => $category) : ?>
 			<li class="knowledge__list-item">
-				<?php echo $category->name; ?>
+				<?php echo trim($category->name, " "); ?>
 			</li>
 		<?php endforeach; endif; ?>
 	</ul>
