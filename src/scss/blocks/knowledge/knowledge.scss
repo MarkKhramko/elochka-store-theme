@@ -34,10 +34,15 @@
 
   &__grid {
     margin-top: 75px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    border-bottom: 2px solid #DBDBDB
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    border-bottom: 2px solid #DBDBDB;
+
+    @include media (md) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__item {

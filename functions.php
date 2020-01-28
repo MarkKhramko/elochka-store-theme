@@ -8,6 +8,9 @@
 
 		wp_register_style('slick-style', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css', [], '0.0.1', 'all');
 		wp_enqueue_style('slick-style');
+
+        wp_register_style('lightbox-style', get_template_directory_uri() . './lightbox.min.css', [], '0.0.1', 'all');
+        wp_enqueue_style('lightbox-style');
 	}
 	add_action('wp_enqueue_scripts', 'elochka_load_stylesheets');
 
@@ -20,9 +23,13 @@
 		// Register modules
 		wp_register_script('jquery-slick', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js', array(), null, true);
 		wp_register_script('jquery-mask', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js', array(), null, true);
+		wp_register_script('lightbox', get_template_directory_uri() . '/static/js/lightbox.min.js', array(), null, false);
+
+
 		// Enqueue
 		wp_enqueue_script('jquery-slick');
 		wp_enqueue_script('jquery-mask');
+		wp_enqueue_script('lightbox');
 
 		// Register theme scripts
 		wp_register_script('elochka-js', get_template_directory_uri() . '/static/js/index.js', null, 1, true);

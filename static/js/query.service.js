@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -98,14 +98,14 @@ eval("__webpack_require__.r(__webpack_exports__);\nfunction _buildQuery(formData
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!***********************************!*\
   !*** multi ./js/query.service.js ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/elochka42/wp-content/themes/elochka-store/src/js/query.service.js */\"./js/query.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/query.service.js?");
+eval("module.exports = __webpack_require__(/*! C:\\OSPanel\\domains\\elochka-store-theme\\wp-content\\themes\\elochka-store-theme\\src\\js\\query.service.js */\"./js/query.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/query.service.js?");
 
 /***/ })
 

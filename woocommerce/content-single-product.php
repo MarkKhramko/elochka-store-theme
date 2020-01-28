@@ -33,17 +33,8 @@
 			</h2>
 			<div class="catalog-single__item">
 				<div class="catalog-single__photos">
-					<div class="catalog-single__img catalog-single__img--big"
-					 style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></div>
-
-					<div class="catalog-single__img catalog-single__img--small"
-						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
-					<div class="catalog-single__img catalog-single__img--small"
-						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_3.png')"></div>
-					<div class="catalog-single__img catalog-single__img--small"
-						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_1.png')"></div>
-					<div class="catalog-single__img catalog-single__img--small"
-						 style="background-image: url('<?php bloginfo('template_url');?>/static/images/images/img_2.png')"></div>
+					<a href="<?php echo get_the_post_thumbnail_url(); ?>" class="catalog-single__img catalog-single__img--big" data-lightbox="<?php echo get_the_post_thumbnail_url(); ?>"
+					 style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"></a>
 				</div>
 				<div class="catalog-single__info">
 					<p class="text">
@@ -53,9 +44,6 @@
 						<br><br>
 						Артикул: <?php echo $product->get_sku(); ?>
 					</p>
-					<div class="catalog-single__cost">
-						<?php echo wc_price($price); ?>
-					</div>
 					<button class="button button--brown">
 						Оставить заявку
 					</button>

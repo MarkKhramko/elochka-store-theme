@@ -8,6 +8,8 @@
   cursor: pointer;
   outline: 0;
 
+
+
   @include media (lg) {
     max-width: 65%;
     width: 100%;
@@ -84,5 +86,13 @@
       height: 34px;
       transform: translateY(-50%);
     }
+  }
+
+  &--loading {
+    background-image: url("../../static/images/icons/5.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 15% !important;
+    background-position: center !important;
+    color: transparent !important;
   }
 }

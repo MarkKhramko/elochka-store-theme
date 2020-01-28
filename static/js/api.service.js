@@ -105,7 +105,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nvar API_PREFIX = \"\".concat(
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! /Applications/MAMP/htdocs/elochka42/wp-content/themes/elochka-store/src/js/api.service.js */\"./js/api.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/api.service.js?");
+eval("module.exports = __webpack_require__(/*! C:\\OSPanel\\domains\\elochka-store-theme\\wp-content\\themes\\elochka-store-theme\\src\\js\\api.service.js */\"./js/api.service.js\");\n\n\n//# sourceURL=webpack:///multi_./js/api.service.js?");
 
 /***/ })
 

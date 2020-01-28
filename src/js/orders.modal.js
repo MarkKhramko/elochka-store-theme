@@ -7,7 +7,12 @@ function _initModal(){
 	});
 
 	// Close modal on background click
-	// ...
+	$(document).click(function(event) {
+		//if you click on anything except the modal itself or the "open modal" link, close the modal
+		if (!$(event.target).closest(".modal__box, .button--brown").length) {
+			$("body").find(".modal").addClass("hidden");
+		}
+	});
 
 	// Send order info on button click
 	$('.modal__button-send').click(function() {
@@ -26,13 +31,29 @@ function _initModal(){
 		const data = $('#modal-form').serialize();
 		API.orders.post(data, (res)=>{
 
+			$(document).ajaxSend(function() {
+				$('.modal__button-send').addClass('button--loading');
+			});
+
 			if (res.error !== null){
 				console.error("Modal Order send error: ", error.description);
 				return;
 			}
 
+			$('.modal__button-send').click(function(){
+				$.ajax({
+					type: 'GET',
+					success: function(data){
+						console.log(data);
+					}
+				}).done(function() {
+					$('.modal').toggleClass('hidden');
+					$('.modal__button-send').removeClass('button--loading');
+				});
+			});
+
 			// Order success
-			$('.modal').toggleClass('hidden');
+			// $('.modal').toggleClass('hidden');
 		});
 	});
 
